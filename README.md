@@ -297,21 +297,62 @@ The project includes a complete E2E test environment using Docker with SQL Serve
 
 **Requirements:** Docker Desktop with SQL Server 2022 image.
 
-### Publishing
+### Building a Standalone Executable
+
+You can package the tool as a self-contained executable that runs without needing .NET installed. The output is a single folder with the executable and all dependencies bundled in.
+
+**Step 1 — Publish for your platform:**
 
 ```bash
-# Windows self-contained executable
+# Windows (produces MsSqlRecordsCompare.exe)
 dotnet publish src/MsSqlRecordsCompare.CLI -c Release -r win-x64 --self-contained -o ./publish
 
-# macOS (Apple Silicon)
+# macOS Apple Silicon (produces MsSqlRecordsCompare)
 dotnet publish src/MsSqlRecordsCompare.CLI -c Release -r osx-arm64 --self-contained -o ./publish
 
-# macOS (Intel)
+# macOS Intel (produces MsSqlRecordsCompare)
 dotnet publish src/MsSqlRecordsCompare.CLI -c Release -r osx-x64 --self-contained -o ./publish
 
-# Linux
+# Linux (produces MsSqlRecordsCompare)
 dotnet publish src/MsSqlRecordsCompare.CLI -c Release -r linux-x64 --self-contained -o ./publish
 ```
+
+Or use the helper scripts that auto-detect your platform:
+
+```bash
+# macOS / Linux
+./scripts/publish.sh
+
+# Windows
+scripts\publish.bat
+```
+
+**Step 2 — Run the executable directly:**
+
+```bash
+# Windows
+.\publish\MsSqlRecordsCompare.exe --help
+.\publish\MsSqlRecordsCompare.exe --generate-template .\MyConfig.xlsx
+.\publish\MsSqlRecordsCompare.exe --config .\MyConfig.xlsx
+
+# macOS / Linux
+./publish/MsSqlRecordsCompare --help
+./publish/MsSqlRecordsCompare --generate-template ./MyConfig.xlsx
+./publish/MsSqlRecordsCompare --config ./MyConfig.xlsx --server "localhost,1433" --user sa --password "YourPass"
+```
+
+**Step 3 — Distribute to others:**
+
+Copy the entire `publish/` folder to any machine. No .NET SDK or runtime installation required — everything is bundled. Recipients just run the executable.
+
+```
+publish/
+  MsSqlRecordsCompare.exe   <- (or MsSqlRecordsCompare on macOS/Linux)
+  MsSqlRecordsCompare.dll
+  ... (runtime dependencies)
+```
+
+> **Tip:** On macOS/Linux, you may need to mark the binary as executable after unzipping: `chmod +x MsSqlRecordsCompare`
 
 ## Supply Chain Security
 

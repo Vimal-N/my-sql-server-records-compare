@@ -137,6 +137,7 @@ BenchmarkDotNet.Artifacts/
 
 ## Publish output
 publish/
+publish-*/
 
 ## NuGet http-cache (local machine only)
 *.dat-new
