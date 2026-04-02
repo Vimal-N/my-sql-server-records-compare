@@ -1,0 +1,17 @@
+services:
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: mssql-e2e-test
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "YourStrong@Passw0rd1"
+    ports:
+      - "11433:1433"
+    volumes:
+      - ./:/e2e:ro
+    healthcheck:
+      test: /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P "YourStrong@Passw0rd1" -C -Q "SELECT 1" -b
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 15s

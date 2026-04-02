@@ -1,0 +1,35 @@
+<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+
+    <!-- Generate lock files to detect package tampering -->
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+
+    <!-- Fail restore if lock file is out of date (CI mode: set to true in CI) -->
+    <!-- <RestoreLockedMode>true</RestoreLockedMode> -->
+
+    <!-- Enable NuGet audit to flag known vulnerabilities -->
+    <NuGetAudit>true</NuGetAudit>
+    <NuGetAuditLevel>low</NuGetAuditLevel>
+    <NuGetAuditMode>all</NuGetAuditMode>
+  </PropertyGroup>
+
+  <!-- All package versions pinned here — no wildcards -->
+  <ItemGroup>
+    <!-- Core dependencies -->
+    <PackageVersion Include="Microsoft.Data.SqlClient" Version="5.2.3" />
+    <PackageVersion Include="ClosedXML" Version="0.104.2" />
+    <PackageVersion Include="FuzzySharp" Version="2.0.2" />
+
+    <!-- CLI dependencies -->
+    <PackageVersion Include="System.CommandLine" Version="2.0.5" />
+
+    <!-- Test dependencies -->
+    <PackageVersion Include="coverlet.collector" Version="6.0.4" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
+    <PackageVersion Include="xunit" Version="2.9.3" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="3.1.4" />
+    <PackageVersion Include="Moq" Version="4.20.72" />
+    <PackageVersion Include="FluentAssertions" Version="7.2.2" />
+  </ItemGroup>
+</Project>

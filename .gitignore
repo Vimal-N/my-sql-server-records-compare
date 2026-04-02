@@ -1,0 +1,151 @@
+## Build results
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Ll]og/
+[Ll]ogs/
+publish/
+out/
+
+## NuGet
+*.nupkg
+*.snupkg
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+!**/[Pp]ackages/repositories.config
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+## .NET
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.DotSettings.user
+global.json
+
+## User-specific files
+*.rsuser
+
+## MSBuild
+*.userprefs
+msbuild.log
+msbuild.err
+msbuild.wrn
+
+## Visual Studio
+.vs/
+*.sln.iml
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+[Tt]est[Rr]esult*/
+[Dd]ebugPublic/
+[Rr]eleases/
+*.ncrunchproject
+*.ncrunchsolution
+_NCrunch_*
+*.dotCover
+.axoCover/*
+!.axoCover/settings.json
+coverage*.json
+coverage*.xml
+coverage*.info
+*.coverage
+*.coveragexml
+
+## Rider
+.idea/
+
+## VS Code
+.vscode/
+*.code-workspace
+
+## OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+## Results output
+results/
+
+## Config files with real data (template is tracked)
+config/ComparisonConfig.xlsx
+
+## Test results
+TestResults/
+[Cc]overage[Rr]eport/
+
+## Publish profiles
+*.pubxml
+*.publishproj
+
+## NuGet v3 cache
+project.nuget.cache
+
+## ASP.NET scaffolding
+ScaffoldingReadMe.txt
+
+## StyleCop
+StyleCopReport.xml
+
+## Files built by Visual Studio
+*_i.c
+*_p.c
+*_h.h
+*.ilk
+*.meta
+*.obj
+*.iobj
+*.pch
+*.pdb
+*.ipdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.tmp_proj
+*_wpftmp.csproj
+*.vspscc
+*.vssscc
+.builds
+*.pidb
+*.svclog
+*.scc
+
+## Microsoft Fakes
+FakesAssemblies/
+
+## BenchmarkDotNet
+BenchmarkDotNet.Artifacts/
+
+## Publish output
+publish/
+
+## NuGet http-cache (local machine only)
+*.dat-new
+
+## Generated test config (recreated by E2E setup)
+tests/e2e/TestCompareConfig.xlsx
+
+## Lock files (regenerated on restore)
+packages.lock.json
+
+## Claude local settings
+.claude/

@@ -1,0 +1,11 @@
+# Package Age Bypass List
+# =======================
+# Packages listed here skip the minimum age check.
+# Use this ONLY for urgent security fixes that can't wait.
+#
+# Format: PackageId|Version|Reason
+# Example:
+# Microsoft.Data.SqlClient|5.2.4|CVE-2026-XXXX critical SQL injection fix
+#
+# IMPORTANT: Remove entries once the package meets the age requirement.
+# Review this file in every PR — bypasses should be temporary.
