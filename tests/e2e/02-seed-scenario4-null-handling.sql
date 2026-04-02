@@ -57,5 +57,43 @@ VALUES
     ('OLD-4001', 'Status', 'Active'),
     ('NEW-4001', 'Status', NULL);
 
+-- Product: GUID NULL==NULL, MONEY NULL vs value, XML both NULL, FLOAT NULL vs value
+INSERT INTO dbo.Product (RecordID, ProductGuid, ProductCode, ProductName, ShortCode, Description,
+    WeightKg, VolumeLiters, UnitCostPrecise, ListPrice, ClearancePrice,
+    Specifications, TagsVarchar, TagsNvarchar)
+VALUES
+    ('OLD-4001', NULL, 'SKU-NULL', 'Null Test Product', 'NULL',
+     NULL, NULL, 0.5, 1.000000, NULL, 4.99,
+     NULL, NULL, NULL),
+    ('NEW-4001', NULL, 'SKU-NULL', 'Null Test Product', 'NULL',
+     NULL, 1.5, 0.5, 1.000000, 19.99, 4.99,     -- WeightKg NULL→value, ListPrice NULL→value
+     NULL, NULL, N'has-value');                     -- TagsNvarchar NULL→value
+
+-- Shipment: zero vs NULL, empty string vs NULL, whitespace vs empty
+INSERT INTO dbo.Shipment (RecordID, TrackingNumber, ShipDate, DispatchTime, ShippedAtOffset,
+    PackageCount, TotalItems, ShipmentWeight, AdjustmentAmount, InsuredValue,
+    WeightAsText, CarrierNotes, SpecialInstructions)
+VALUES
+    ('OLD-4001', 'TRK-4001-A', '2025-08-01', '10:00:00', '2025-08-01 10:00:00 +00:00',
+     0, 5, 1000, 0.00, 100.00,
+     NULL, '', '   ');        -- WeightAsText NULL, CarrierNotes empty string, SpecialInstructions whitespace
+
+INSERT INTO dbo.Shipment (RecordID, TrackingNumber, ShipDate, DispatchTime, ShippedAtOffset,
+    PackageCount, TotalItems, ShipmentWeight, AdjustmentAmount, InsuredValue,
+    WeightAsText, CarrierNotes, SpecialInstructions)
+VALUES
+    ('NEW-4001', 'TRK-4001-A', '2025-08-01', '10:00:00', '2025-08-01 10:00:00 +00:00',
+     NULL, 5, 1000, 0.00, 100.00,
+     '0.0', NULL, '');        -- PackageCount 0→NULL, WeightAsText NULL→value, CarrierNotes ''→NULL, whitespace→empty
+
+-- InventorySnapshot: QuantityReserved 0 vs NULL, BatchId both NULL, TotalValue NULL==NULL
+INSERT INTO dbo.InventorySnapshot (RecordID, WarehouseID, SKU, QuantityOnHand, QuantityReserved,
+    ReorderPoint, UnitCost, TotalValue, LastCountedAt, SnapshotTime, BatchId, Notes)
+VALUES
+    ('OLD-4001', 1, 'SKU-NULL', 20, 0, 5, 1.000000, NULL, '2025-08-01 08:00:00 +00:00', '08:00:00',
+     NULL, NULL),
+    ('NEW-4001', 1, 'SKU-NULL', 20, NULL, 5, 1.000000, NULL, '2025-08-01 08:00:00 +00:00', '08:00:00',
+     NULL, NULL);    -- QuantityReserved 0→NULL mismatch, TotalValue NULL==NULL match, BatchId NULL==NULL match
+
 PRINT '=== Scenario 4 (Null Handling) seeded ===';
 GO

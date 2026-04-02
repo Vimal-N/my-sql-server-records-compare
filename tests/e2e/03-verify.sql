@@ -19,5 +19,20 @@ SELECT 'AuditLog (Financial only)' AS TableName, RecordID, COUNT(*) AS Cnt
 FROM dbo.AuditLog WHERE Category = 'Financial'
 GROUP BY RecordID ORDER BY RecordID;
 
+SELECT 'Product'   AS TableName, RecordID, COUNT(*) AS Cnt FROM dbo.Product    GROUP BY RecordID ORDER BY RecordID;
+SELECT 'Shipment'  AS TableName, RecordID, COUNT(*) AS Cnt FROM dbo.Shipment   GROUP BY RecordID ORDER BY RecordID;
+SELECT 'ProductCategory' AS TableName, CategoryCode, COUNT(*) AS Cnt FROM dbo.ProductCategory GROUP BY CategoryCode ORDER BY CategoryCode;
+SELECT 'InventorySnapshot' AS TableName, RecordID, COUNT(*) AS Cnt FROM dbo.InventorySnapshot GROUP BY RecordID ORDER BY RecordID;
+
+SELECT 'ProductCategory (via subquery)' AS TableName, p.RecordID, COUNT(*) AS Cnt
+FROM dbo.ProductCategory pc
+JOIN dbo.Product p ON p.CategoryID = pc.CategoryID
+GROUP BY p.RecordID ORDER BY p.RecordID;
+
+SELECT 'InventorySnapshot (LEFT JOIN)' AS TableName, inv.RecordID, COUNT(*) AS Cnt
+FROM dbo.InventorySnapshot inv
+LEFT JOIN dbo.Warehouse wh ON inv.WarehouseID = wh.WarehouseID
+GROUP BY inv.RecordID ORDER BY inv.RecordID;
+
 PRINT '=== Verification complete ===';
 GO

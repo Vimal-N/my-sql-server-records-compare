@@ -75,5 +75,77 @@ VALUES
     ('NEW-2001', 'Priority', 'Low'),     -- exact mismatch
     ('NEW-2001', 'Region',   'West');
 
+-- Product: GUID mismatch, FLOAT precision mismatch, MONEY mismatch, XML diff, Unicode mismatch
+INSERT INTO dbo.ProductCategory (CategoryCode, CategoryName, ParentCategoryID, SortOrder, IsVisible, MetadataXml, IconUrl, DisplayNotes)
+VALUES ('TOOLS     ', 'Tools', NULL, 2, 1, '<meta><color>red</color></meta>', '/icons/tools.png', 'Tool category');
+
+DECLARE @catId2 INT = SCOPE_IDENTITY();
+
+INSERT INTO dbo.Product (RecordID, ProductGuid, ProductCode, ProductName, ShortCode, Description,
+    WeightKg, VolumeLiters, UnitCostPrecise, ListPrice, ClearancePrice,
+    Specifications, TagsVarchar, TagsNvarchar, CategoryID)
+VALUES
+    ('OLD-2001',
+     'AAAAAAAA-BBBB-CCCC-DDDD-EEEEEEEEEEEE',
+     'SKU-BETA',
+     'Standard Wrench',
+     'WRNCH',
+     'A standard wrench for general use.',
+     1.5, 0.8, 5.123456, 15.99, 9.99,
+     '<specs><size>medium</size></specs>',
+     'tools,hand-tools',
+     N'Stra' + NCHAR(0x00DF) + N'e',        -- Straße (German)
+     @catId2);
+
+INSERT INTO dbo.Product (RecordID, ProductGuid, ProductCode, ProductName, ShortCode, Description,
+    WeightKg, VolumeLiters, UnitCostPrecise, ListPrice, ClearancePrice,
+    Specifications, TagsVarchar, TagsNvarchar, CategoryID)
+VALUES
+    ('NEW-2001',
+     'FFFFFFFF-BBBB-CCCC-DDDD-EEEEEEEEEEEE',  -- GUID mismatch (different value entirely)
+     'SKU-GAMMA',                               -- CHAR mismatch
+     'Standard Wrench',
+     'WRNCH',
+     'A standard wrench for general use.',
+     1.50001,                                   -- FLOAT: 0.00001 diff (exceeds 0.0001 tolerance)
+     0.8,
+     5.123457,                                  -- DECIMAL(18,6): 0.000001 diff (at tolerance boundary)
+     16.50,                                     -- MONEY mismatch
+     9.99,
+     '<specs><size>large</size></specs>',        -- XML mismatch
+     'tools,hand-tools',
+     N'Strasse',                                -- Unicode mismatch (no ß)
+     @catId2);
+
+-- Shipment: TIME mismatch, DATETIMEOFFSET mismatch, BIGINT large number mismatch, negative number mismatch
+INSERT INTO dbo.Shipment (RecordID, TrackingNumber, ShipDate, DispatchTime, ShippedAtOffset,
+    PackageCount, TotalItems, ShipmentWeight, AdjustmentAmount, InsuredValue,
+    WeightAsText, CarrierNotes, SpecialInstructions)
+VALUES
+    ('OLD-2001', 'TRK-2001-A', '2025-03-15', '14:30:00', '2025-03-15 14:30:00 +05:30',
+     3, 15, 9223372036854775000, -15.50, 500.00,
+     '12.5', 'Handle with care', 'Ring doorbell');
+
+INSERT INTO dbo.Shipment (RecordID, TrackingNumber, ShipDate, DispatchTime, ShippedAtOffset,
+    PackageCount, TotalItems, ShipmentWeight, AdjustmentAmount, InsuredValue,
+    WeightAsText, CarrierNotes, SpecialInstructions)
+VALUES
+    ('NEW-2001', 'TRK-2001-A', '2025-03-15', '15:45:00', '2025-03-15 16:00:00 +05:30',  -- TIME + DATETIMEOFFSET mismatch
+     3, 20, 9223372036854770000, -100.00, 500.00,    -- SMALLINT, BIGINT, negative mismatch
+     '15.0', 'Fragile', 'Ring doorbell');             -- WeightAsText, CarrierNotes mismatch
+
+-- InventorySnapshot: LEFT JOIN, amount mismatches
+INSERT INTO dbo.InventorySnapshot (RecordID, WarehouseID, SKU, QuantityOnHand, QuantityReserved,
+    ReorderPoint, UnitCost, TotalValue, LastCountedAt, SnapshotTime, BatchId, Notes)
+VALUES
+    ('OLD-2001', 1, 'SKU-200', 100, 10, 20, 5.123456, 512.35, '2025-03-15 08:00:00 +00:00', '08:00:00',
+     'D1D2D3D4-E5E6-7890-ABCD-EF1234567890', 'Stock check');
+
+INSERT INTO dbo.InventorySnapshot (RecordID, WarehouseID, SKU, QuantityOnHand, QuantityReserved,
+    ReorderPoint, UnitCost, TotalValue, LastCountedAt, SnapshotTime, BatchId, Notes)
+VALUES
+    ('NEW-2001', 1, 'SKU-200', 95, 10, 20, 5.200000, 494.00, '2025-03-15 08:00:00 +00:00', '09:30:00',
+     'D1D2D3D4-E5E6-7890-ABCD-EF1234567890', 'Stock check');  -- Qty, UnitCost, TotalValue, SnapshotTime mismatch
+
 PRINT '=== Scenario 2 (Known Mismatches) seeded ===';
 GO

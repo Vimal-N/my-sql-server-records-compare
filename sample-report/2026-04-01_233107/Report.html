@@ -1,0 +1,3714 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comparison Report — TestOrders — 2026-04-01 23:31</title>
+<style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 14px; color: #333; background: #f5f5f5; padding: 20px; }
+    .container { max-width: 1200px; margin: 0 auto; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 30px; }
+    h1 { font-size: 24px; color: #2c3e50; margin-bottom: 5px; }
+    h2 { font-size: 18px; color: #34495e; margin: 25px 0 10px; border-bottom: 2px solid #ecf0f1; padding-bottom: 8px; }
+    h3 { font-size: 15px; color: #2c3e50; margin: 15px 0 8px; }
+    .meta { color: #7f8c8d; font-size: 12px; margin-bottom: 20px; }
+    .meta span { margin-right: 20px; }
+    .summary-box { display: flex; gap: 20px; margin: 15px 0; flex-wrap: wrap; }
+    .summary-card { background: #f8f9fa; border-radius: 6px; padding: 15px 20px; flex: 1; min-width: 140px; text-align: center; border-left: 4px solid #bdc3c7; }
+    .summary-card.pass { border-left-color: #27ae60; }
+    .summary-card.fail { border-left-color: #e74c3c; }
+    .summary-card .number { font-size: 28px; font-weight: bold; }
+    .summary-card .label { font-size: 12px; color: #7f8c8d; text-transform: uppercase; }
+    .pass .number { color: #27ae60; }
+    .fail .number { color: #e74c3c; }
+    .filters { margin: 15px 0; padding: 10px; background: #f8f9fa; border-radius: 6px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+    .filters label { font-size: 12px; color: #7f8c8d; }
+    .filters select, .filters button { padding: 5px 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 13px; cursor: pointer; }
+    .filters button { background: #3498db; color: white; border: none; }
+    .filters button:hover { background: #2980b9; }
+    .btn-pdf { background: #8e44ad !important; }
+    .btn-pdf:hover { background: #7d3c98 !important; }
+    table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 13px; }
+    th { background: #34495e; color: white; padding: 8px 12px; text-align: left; font-weight: 500; }
+    td { padding: 8px 12px; border-bottom: 1px solid #ecf0f1; word-break: break-all; }
+    tr:hover { background: #f8f9fa; }
+    .match { color: #27ae60; } .match-bg { background: #eafaf1; }
+    .mismatch { color: #e74c3c; } .mismatch-bg { background: #fdf2f2; }
+    .fuzzy { color: #f39c12; } .fuzzy-bg { background: #fef9e7; }
+    .excluded { color: #95a5a6; } .excluded-bg { background: #f8f9fa; }
+    .scenario-header { cursor: pointer; padding: 12px 15px; margin: 8px 0; border-radius: 6px; display: flex; justify-content: space-between; align-items: center; }
+    .scenario-header.pass-header { background: #eafaf1; border: 1px solid #a9dfbf; }
+    .scenario-header.fail-header { background: #fdf2f2; border: 1px solid #f5b7b1; }
+    .scenario-header .arrow { transition: transform 0.2s; font-size: 12px; }
+    .scenario-header.collapsed .arrow { transform: rotate(-90deg); }
+    .scenario-body { padding: 0 15px; }
+    .scenario-body.hidden { display: none; }
+    .table-section { margin: 10px 0; padding: 10px; border: 1px solid #ecf0f1; border-radius: 4px; }
+    .table-header { cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 5px 0; }
+    .table-body.hidden { display: none; }
+    .tag { display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 11px; font-weight: 500; }
+    .tag-pass { background: #d5f5e3; color: #1e8449; }
+    .tag-fail { background: #fadbd8; color: #c0392b; }
+    .tag-warn { background: #fdebd0; color: #d68910; }
+    .tag-info { background: #d6eaf8; color: #2471a3; }
+    .warning { color: #d68910; font-size: 12px; padding: 3px 0; }
+    .overview-table td.pass-cell { background: #eafaf1; text-align: center; }
+    .overview-table td.fail-cell { background: #fdf2f2; text-align: center; font-weight: bold; }
+    .no-print { }
+    @media print {
+        body { background: white; padding: 0; font-size: 11pt; }
+        .container { box-shadow: none; padding: 0; max-width: 100%; }
+        .no-print { display: none !important; }
+        .scenario-body.hidden { display: block !important; }
+        .table-body.hidden { display: block !important; }
+        .scenario-header .arrow { display: none; }
+        .scenario-header { cursor: default; page-break-after: avoid; }
+        h2 { page-break-after: avoid; }
+        table { page-break-inside: avoid; }
+        tr { page-break-inside: avoid; }
+        .scenario-body { page-break-before: auto; }
+        .table-section { page-break-inside: avoid; }
+        @page { margin: 1.5cm; }
+    }
+</style>
+</head>
+<body>
+<div class="container">
+<h1>MsSqlRecordsCompare &mdash; Comparison Report</h1>
+<div class="meta">
+<span>Generated: 2026-04-01 23:31:07</span>
+<span>User: sa</span>
+<span>Table Set: TestOrders</span><br>
+<span>Server: localhost,11433</span>
+<span>Database: TestCompareDB</span>
+<span>Config: /Users/vimal/Documents/Projects/my-sql-server-records-compare/tests/e2e/TestCompareConfig.xlsx</span>
+</div>
+<h2>Executive Summary</h2>
+<div class="summary-box">
+<div class="summary-card fail">
+<div class="number">1/5</div>
+<div class="label">Scenarios Passed</div></div>
+<div class="summary-card fail">
+<div class="number">57</div>
+<div class="label">Mismatches</div></div>
+<div class="summary-card">
+<div class="number">50</div>
+<div class="label">Tables Compared</div></div>
+</div>
+<div class="filters no-print">
+<label>Filter:</label>
+<button onclick="filterScenarios('all')">Show All</button>
+<button onclick="filterScenarios('mismatches')">Mismatches Only</button>
+<button class="btn-pdf" onclick="window.print()">Save as PDF</button>
+</div>
+<h2>Scenario Overview</h2>
+<table class="overview-table">
+<tr><th>Scenario</th><th>Old ID</th><th>New ID</th><th>Status</th><th>Mismatches</th></tr>
+<tr>
+<td>Perfect-Match</td>
+<td>OLD-1001</td>
+<td>NEW-1001</td>
+<td class="pass-cell">✓</td>
+<td class="pass-cell">&mdash;</td>
+</tr>
+<tr>
+<td>Known-Mismatches</td>
+<td>OLD-2001</td>
+<td>NEW-2001</td>
+<td class="fail-cell">✗</td>
+<td class="fail-cell">34</td>
+</tr>
+<tr>
+<td>Row-Count-Diff</td>
+<td>OLD-3001</td>
+<td>NEW-3001</td>
+<td class="fail-cell">✗</td>
+<td class="fail-cell">9</td>
+</tr>
+<tr>
+<td>Null-Handling</td>
+<td>OLD-4001</td>
+<td>NEW-4001</td>
+<td class="fail-cell">✗</td>
+<td class="fail-cell">13</td>
+</tr>
+<tr>
+<td>Complex-Queries-Dupes</td>
+<td>OLD-5001</td>
+<td>NEW-5001</td>
+<td class="fail-cell">✗</td>
+<td class="fail-cell">1</td>
+</tr>
+</table>
+<h2>Mismatch Summary by Table</h2>
+<table>
+<tr><th>Table</th><th>Mismatches</th><th>Scenarios Affected</th></tr>
+<tr class="mismatch-bg">
+<td>dbo.Shipment</td>
+<td>12</td>
+<td>3</td>
+</tr>
+<tr class="mismatch-bg">
+<td>dbo.OrderLine</td>
+<td>9</td>
+<td>3</td>
+</tr>
+<tr class="mismatch-bg">
+<td>dbo.Product</td>
+<td>8</td>
+<td>2</td>
+</tr>
+<tr class="mismatch-bg">
+<td>dbo.Customer</td>
+<td>6</td>
+<td>2</td>
+</tr>
+<tr class="mismatch-bg">
+<td>dbo.Order</td>
+<td>6</td>
+<td>2</td>
+</tr>
+<tr class="mismatch-bg">
+<td>dbo.InventorySnapshot</td>
+<td>6</td>
+<td>3</td>
+</tr>
+<tr class="mismatch-bg">
+<td>dbo.Payment</td>
+<td>4</td>
+<td>3</td>
+</tr>
+<tr class="mismatch-bg">
+<td>dbo.OrderTag</td>
+<td>3</td>
+<td>3</td>
+</tr>
+<tr class="mismatch-bg">
+<td>dbo.AuditLog</td>
+<td>3</td>
+<td>3</td>
+</tr>
+<tr class="">
+<td>dbo.ProductCategory</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</table>
+<h2>Scenario Details</h2>
+<div class="scenario-block" data-passed="true">
+<div class="scenario-header pass-header" onclick="toggleSection('scenario-Perfect-Match')">
+<span><strong>Perfect-Match</strong> <small>(OLD-1001 &rarr; NEW-1001)</small></span>
+<span><span class="tag tag-pass">✓ PASSED</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Perfect-Match" class="scenario-body hidden">
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Perfect-Match-dbo-Customer')">
+<span><strong>[dbo].[Customer]</strong> <small>(1 / 1 rows)</small></span>
+<span><span class="tag tag-pass">✓ match</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Perfect-Match-dbo-Customer" class="table-body hidden">
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>FullName</td>
+<td colspan="2">John A. Smith</td>
+<td class="match">✓ Match <small>(fuzzy)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Email</td>
+<td colspan="2">John.Smith@Example.COM</td>
+<td class="match">✓ Match <small>(exact-ci)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Phone</td>
+<td colspan="2">555-1234</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Address</td>
+<td colspan="2">123 Main St</td>
+<td class="match">✓ Match <small>(contains)</small></td>
+</tr>
+<tr class="match-bg">
+<td>IsActive</td>
+<td colspan="2">True</td>
+<td class="match">✓ Match <small>(boolean)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Notes</td>
+<td colspan="2">Preferred customer</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+</table>
+</div></div>
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Perfect-Match-dbo-Order')">
+<span><strong>[dbo].[Order]</strong> <small>(1 / 1 rows)</small></span>
+<span><span class="tag tag-pass">✓ match</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Perfect-Match-dbo-Order" class="table-body hidden">
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>OrderDate</td>
+<td colspan="2">2025-06-15</td>
+<td class="match">✓ Match <small>(date)</small></td>
+</tr>
+<tr class="match-bg">
+<td>OrderStatus</td>
+<td colspan="2">Completed</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>SubTotal</td>
+<td colspan="2">250.00</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TaxRate</td>
+<td colspan="2">0.0750</td>
+<td class="match">✓ Match <small>(percentage)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TaxAmount</td>
+<td colspan="2">18.75</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TotalAmount</td>
+<td colspan="2">268.75</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>DiscountPercent</td>
+<td colspan="2">0.1000</td>
+<td class="match">✓ Match <small>(percentage)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Notes</td>
+<td colspan="2">Old system notes here</td>
+<td class="match">✓ Match <small>(ignore)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ProcessedFlag</td>
+<td colspan="2">True</td>
+<td class="match">✓ Match <small>(boolean)</small></td>
+</tr>
+</table>
+</div></div>
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Perfect-Match-dbo-Product')">
+<span><strong>[dbo].[Product]</strong> <small>(1 / 1 rows)</small></span>
+<span><span class="tag tag-pass">✓ match</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Perfect-Match-dbo-Product" class="table-body hidden">
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>ProductGuid</td>
+<td colspan="2">a1b2c3d4-e5f6-7890-abcd-ef1234567890</td>
+<td class="match">✓ Match <small>(exact-ci)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ProductCode</td>
+<td colspan="2">SKU-ALPHA</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ProductName</td>
+<td colspan="2">Premium Widget Pro</td>
+<td class="match">✓ Match <small>(fuzzy)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ShortCode</td>
+<td colspan="2">WDGT</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Description</td>
+<td colspan="2">This is a detailed product description for testing. This is a detailed product description for testing. This is a detailed product description for testing. This is a detailed product description for testing. This is a detailed product description for testing. This is a detailed product description for testing. This is a detailed product description for testing. This is a detailed product description for testing. This is a detailed product description for testing. This is a detailed product description for testing. This is a detailed product description for testing. This is a detailed product description for testing.</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>WeightKg</td>
+<td colspan="2">2.5</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>VolumeLiters</td>
+<td colspan="2">1.25</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>UnitCostPrecise</td>
+<td colspan="2">12.345678</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ListPrice</td>
+<td colspan="2">29.9900</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ClearancePrice</td>
+<td colspan="2">19.9900</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Specifications</td>
+<td colspan="2">&lt;specs&gt;&lt;weight unit=&quot;kg&quot;&gt;2.5&lt;/weight&gt;&lt;color&gt;blue&lt;/color&gt;&lt;/specs&gt;</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TagsVarchar</td>
+<td colspan="2">electronics,gadget</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TagsNvarchar</td>
+<td colspan="2">electronics,gadget</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>CategoryID</td>
+<td colspan="2">1</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+</table>
+</div></div>
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Perfect-Match-dbo-OrderLine')">
+<span><strong>[dbo].[OrderLine]</strong> <small>(3 / 3 rows)</small></span>
+<span><span class="tag tag-pass">✓ match</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Perfect-Match-dbo-OrderLine" class="table-body hidden">
+<h3>Row: SKU-100||LG</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>ProductCode</td>
+<td colspan="2">SKU-100</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>SizeCode</td>
+<td colspan="2">LG</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Quantity</td>
+<td colspan="2">5</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>UnitPrice</td>
+<td colspan="2">29.99</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>LineTotal</td>
+<td colspan="2">149.95</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Description</td>
+<td colspan="2">Large Blue Widget</td>
+<td class="match">✓ Match <small>(fuzzy)</small></td>
+</tr>
+</table>
+<h3>Row: SKU-200||MD</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>ProductCode</td>
+<td colspan="2">SKU-200</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>SizeCode</td>
+<td colspan="2">MD</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Quantity</td>
+<td colspan="2">2</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>UnitPrice</td>
+<td colspan="2">49.99</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>LineTotal</td>
+<td colspan="2">99.98</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Description</td>
+<td colspan="2">Medium Red Gadget</td>
+<td class="match">✓ Match <small>(fuzzy)</small></td>
+</tr>
+</table>
+<h3>Row: SKU-300||SM</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>ProductCode</td>
+<td colspan="2">SKU-300</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>SizeCode</td>
+<td colspan="2">SM</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Quantity</td>
+<td colspan="2">1</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>UnitPrice</td>
+<td colspan="2">19.99</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>LineTotal</td>
+<td colspan="2">19.99</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Description</td>
+<td colspan="2">Small Green Sprocket</td>
+<td class="match">✓ Match <small>(fuzzy)</small></td>
+</tr>
+</table>
+</div></div>
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Perfect-Match-dbo-Shipment')">
+<span><strong>[dbo].[Shipment]</strong> <small>(2 / 2 rows)</small></span>
+<span><span class="tag tag-pass">✓ match</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Perfect-Match-dbo-Shipment" class="table-body hidden">
+<h3>Row: TRK-1001-A</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>TrackingNumber</td>
+<td colspan="2">TRK-1001-A</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ShipDate</td>
+<td colspan="2">2025-06-16</td>
+<td class="match">✓ Match <small>(date)</small></td>
+</tr>
+<tr class="match-bg">
+<td>DispatchTime</td>
+<td colspan="2">14:30:00</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ShippedAtOffset</td>
+<td colspan="2">6/16/2025 2:30:00 PM +00:00</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>PackageCount</td>
+<td colspan="2">3</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TotalItems</td>
+<td colspan="2">15</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ShipmentWeight</td>
+<td colspan="2">45000</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>AdjustmentAmount</td>
+<td colspan="2">-10.50</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>InsuredValue</td>
+<td colspan="2">500.00</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>WeightAsText</td>
+<td colspan="2">12.5</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>CarrierNotes</td>
+<td colspan="2">Handle with care</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>SpecialInstructions</td>
+<td colspan="2">Leave at door</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+</table>
+<h3>Row: TRK-1001-B</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>TrackingNumber</td>
+<td colspan="2">TRK-1001-B</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ShipDate</td>
+<td colspan="2">2025-06-17</td>
+<td class="match">✓ Match <small>(date)</small></td>
+</tr>
+<tr class="match-bg">
+<td>DispatchTime</td>
+<td colspan="2">09:00:00</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ShippedAtOffset</td>
+<td colspan="2">6/17/2025 9:00:00 AM +00:00</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>PackageCount</td>
+<td colspan="2">1</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TotalItems</td>
+<td colspan="2">5</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ShipmentWeight</td>
+<td colspan="2">12000</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>AdjustmentAmount</td>
+<td colspan="2">0.00</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>InsuredValue</td>
+<td colspan="2">200.00</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>WeightAsText</td>
+<td colspan="2">12.50</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>CarrierNotes</td>
+<td colspan="2">Handle with care</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>SpecialInstructions</td>
+<td colspan="2">Leave at door</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+</table>
+</div></div>
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Perfect-Match-dbo-OrderTag')">
+<span><strong>[dbo].[OrderTag]</strong> <small>(2 / 2 rows)</small></span>
+<span><span class="tag tag-pass">✓ match</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Perfect-Match-dbo-OrderTag" class="table-body hidden">
+<h3>Row: Priority</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>TagName</td>
+<td colspan="2">Priority</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TagValue</td>
+<td colspan="2">High</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+</table>
+<h3>Row: Region</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>TagName</td>
+<td colspan="2">Region</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TagValue</td>
+<td colspan="2">West</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+</table>
+</div></div>
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Perfect-Match-dbo-Payment')">
+<span><strong>[dbo].[Payment]</strong> <small>(2 / 2 rows)</small></span>
+<span><span class="tag tag-pass">✓ match</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Perfect-Match-dbo-Payment" class="table-body hidden">
+<h3>Row: CreditCard</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>PaymentType</td>
+<td colspan="2">CreditCard</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Amount</td>
+<td colspan="2">200.00</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>PaymentDate</td>
+<td colspan="2">2025-06-15</td>
+<td class="match">✓ Match <small>(datetime)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ReferenceNumber</td>
+<td colspan="2">12345</td>
+<td class="match">✓ Match <small>(contains)</small></td>
+</tr>
+<tr class="match-bg">
+<td>IsRefund</td>
+<td colspan="2">False</td>
+<td class="match">✓ Match <small>(boolean)</small></td>
+</tr>
+</table>
+<h3>Row: Cash</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>PaymentType</td>
+<td colspan="2">Cash</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Amount</td>
+<td colspan="2">68.75</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>PaymentDate</td>
+<td colspan="2">2025-06-15</td>
+<td class="match">✓ Match <small>(datetime)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ReferenceNumber</td>
+<td colspan="2">12346</td>
+<td class="match">✓ Match <small>(contains)</small></td>
+</tr>
+<tr class="match-bg">
+<td>IsRefund</td>
+<td colspan="2">False</td>
+<td class="match">✓ Match <small>(boolean)</small></td>
+</tr>
+</table>
+</div></div>
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Perfect-Match-dbo-AuditLog')">
+<span><strong>[dbo].[AuditLog]</strong> <small>(2 / 2 rows)</small></span>
+<span><span class="tag tag-pass">✓ match</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Perfect-Match-dbo-AuditLog" class="table-body hidden">
+<h3>Row: Create</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>Action</td>
+<td colspan="2">Create</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Details</td>
+<td colspan="2">Order created with total 268.75</td>
+<td class="match">✓ Match <small>(fuzzy)</small></td>
+</tr>
+</table>
+<h3>Row: Approve</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>Action</td>
+<td colspan="2">Approve</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Details</td>
+<td colspan="2">Payment approved</td>
+<td class="match">✓ Match <small>(fuzzy)</small></td>
+</tr>
+</table>
+</div></div>
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Perfect-Match-dbo-ProductCategory')">
+<span><strong>[dbo].[ProductCategory]</strong> <small>(1 / 1 rows)</small></span>
+<span><span class="tag tag-pass">✓ match</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Perfect-Match-dbo-ProductCategory" class="table-body hidden">
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>CategoryCode</td>
+<td colspan="2">WIDGETS</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>CategoryName</td>
+<td colspan="2">Widgets &amp; Gadgets</td>
+<td class="match">✓ Match <small>(exact-ci)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ParentCategoryID</td>
+<td colspan="2"></td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>SortOrder</td>
+<td colspan="2">1</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>IsVisible</td>
+<td colspan="2">True</td>
+<td class="match">✓ Match <small>(boolean)</small></td>
+</tr>
+<tr class="match-bg">
+<td>MetadataXml</td>
+<td colspan="2">&lt;meta&gt;&lt;color&gt;blue&lt;/color&gt;&lt;/meta&gt;</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>IconUrl</td>
+<td colspan="2">/icons/widgets.png</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>DisplayNotes</td>
+<td colspan="2">Main product category</td>
+<td class="match">✓ Match <small>(fuzzy)</small></td>
+</tr>
+</table>
+</div></div>
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Perfect-Match-dbo-InventorySnapshot')">
+<span><strong>[dbo].[InventorySnapshot]</strong> <small>(2 / 2 rows)</small></span>
+<span><span class="tag tag-pass">✓ match</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Perfect-Match-dbo-InventorySnapshot" class="table-body hidden">
+<h3>Row: SKU-100||1</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>WarehouseID</td>
+<td colspan="2">1</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>SKU</td>
+<td colspan="2">SKU-100</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>QuantityOnHand</td>
+<td colspan="2">50</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>QuantityReserved</td>
+<td colspan="2">5</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ReorderPoint</td>
+<td colspan="2">10</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>UnitCost</td>
+<td colspan="2">12.345678</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TotalValue</td>
+<td colspan="2">617.2800</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>LastCountedAt</td>
+<td colspan="2">6/15/2025 8:00:00 AM +00:00</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>SnapshotTime</td>
+<td colspan="2">08:00:00</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>BatchId</td>
+<td colspan="2">b1b2b3b4-c5c6-7890-abcd-ef1234567890</td>
+<td class="match">✓ Match <small>(exact-ci)</small></td>
+</tr>
+<tr class="match-bg">
+<td>WarehouseName</td>
+<td colspan="2">East Coast DC</td>
+<td class="match">✓ Match <small>(exact-ci)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TimeZoneOffset</td>
+<td colspan="2">+05:00</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+</table>
+<h3>Row: SKU-100||2</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>WarehouseID</td>
+<td colspan="2">2</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>SKU</td>
+<td colspan="2">SKU-100</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>QuantityOnHand</td>
+<td colspan="2">30</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>QuantityReserved</td>
+<td colspan="2">3</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ReorderPoint</td>
+<td colspan="2">10</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>UnitCost</td>
+<td colspan="2">12.345678</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TotalValue</td>
+<td colspan="2">370.3700</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>LastCountedAt</td>
+<td colspan="2">6/15/2025 11:00:00 AM -08:00</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>SnapshotTime</td>
+<td colspan="2">11:00:00</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>BatchId</td>
+<td colspan="2">b1b2b3b4-c5c6-7890-abcd-ef1234567891</td>
+<td class="match">✓ Match <small>(exact-ci)</small></td>
+</tr>
+<tr class="match-bg">
+<td>WarehouseName</td>
+<td colspan="2">West Coast DC</td>
+<td class="match">✓ Match <small>(exact-ci)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TimeZoneOffset</td>
+<td colspan="2">-08:00</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+</table>
+</div></div>
+</div></div>
+<div class="scenario-block" data-passed="false">
+<div class="scenario-header fail-header" onclick="toggleSection('scenario-Known-Mismatches')">
+<span><strong>Known-Mismatches</strong> <small>(OLD-2001 &rarr; NEW-2001)</small></span>
+<span><span class="tag tag-fail">✗ 34 MISMATCHES</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Known-Mismatches" class="scenario-body ">
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Known-Mismatches-dbo-Customer')">
+<span><strong>[dbo].[Customer]</strong> <small>(1 / 1 rows)</small></span>
+<span><span class="tag tag-fail">✗ 4</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Known-Mismatches-dbo-Customer" class="table-body ">
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="mismatch-bg">
+<td>FullName</td>
+<td>John Smith</td>
+<td>Jonathan Q. Smithson</td>
+<td class="mismatch">✗ DIFF <small>(fuzzy)</small></td>
+</tr>
+<tr class="mismatch-bg">
+<td>Email</td>
+<td>john@test.com</td>
+<td>jane@test.com</td>
+<td class="mismatch">✗ DIFF <small>(exact-ci)</small></td>
+</tr>
+<tr class="mismatch-bg">
+<td>Address</td>
+<td>123 Main St</td>
+<td>456 Oak Ave</td>
+<td class="mismatch">✗ DIFF <small>(contains)</small></td>
+</tr>
+<tr class="mismatch-bg">
+<td>IsActive</td>
+<td>True</td>
+<td>False</td>
+<td class="mismatch">✗ DIFF <small>(boolean)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Phone</td>
+<td colspan="2">555-1111</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Notes</td>
+<td colspan="2">Same notes</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+</table>
+</div></div>
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Known-Mismatches-dbo-Order')">
+<span><strong>[dbo].[Order]</strong> <small>(1 / 1 rows)</small></span>
+<span><span class="tag tag-fail">✗ 5</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Known-Mismatches-dbo-Order" class="table-body ">
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="mismatch-bg">
+<td>OrderDate</td>
+<td>3/15/2025 12:00:00 AM</td>
+<td>3/16/2025 12:00:00 AM</td>
+<td class="mismatch">✗ DIFF <small>(date)</small></td>
+</tr>
+<tr class="mismatch-bg">
+<td>TaxRate</td>
+<td>0.0750</td>
+<td>0.0800</td>
+<td class="mismatch">✗ DIFF <small>(percentage)</small></td>
+</tr>
+<tr class="mismatch-bg">
+<td>TaxAmount</td>
+<td>6.75</td>
+<td>7.20</td>
+<td class="mismatch">✗ DIFF <small>(currency)</small></td>
+</tr>
+<tr class="mismatch-bg">
+<td>TotalAmount</td>
+<td>100.00</td>
+<td>100.50</td>
+<td class="mismatch">✗ DIFF <small>(currency)</small></td>
+</tr>
+<tr class="mismatch-bg">
+<td>ProcessedFlag</td>
+<td>Y</td>
+<td>false</td>
+<td class="mismatch">✗ DIFF <small>(boolean)</small></td>
+</tr>
+<tr class="match-bg">
+<td>OrderStatus</td>
+<td colspan="2">Completed</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>SubTotal</td>
+<td colspan="2">90.00</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>DiscountPercent</td>
+<td colspan="2">0.1000</td>
+<td class="match">✓ Match <small>(percentage)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Notes</td>
+<td colspan="2">Old notes</td>
+<td class="match">✓ Match <small>(ignore)</small></td>
+</tr>
+</table>
+</div></div>
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Known-Mismatches-dbo-Product')">
+<span><strong>[dbo].[Product]</strong> <small>(1 / 1 rows)</small></span>
+<span><span class="tag tag-fail">✗ 5</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Known-Mismatches-dbo-Product" class="table-body ">
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="mismatch-bg">
+<td>ProductGuid</td>
+<td>aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee</td>
+<td>ffffffff-bbbb-cccc-dddd-eeeeeeeeeeee</td>
+<td class="mismatch">✗ DIFF <small>(exact-ci)</small></td>
+</tr>
+<tr class="mismatch-bg">
+<td>ProductCode</td>
+<td>SKU-BETA</td>
+<td>SKU-GAMMA</td>
+<td class="mismatch">✗ DIFF <small>(exact)</small></td>
+</tr>
+<tr class="mismatch-bg">
+<td>ListPrice</td>
+<td>15.9900</td>
+<td>16.5000</td>
+<td class="mismatch">✗ DIFF <small>(currency)</small></td>
+</tr>
+<tr class="mismatch-bg">
+<td>Specifications</td>
+<td>&lt;specs&gt;&lt;size&gt;medium&lt;/size&gt;&lt;/specs&gt;</td>
+<td>&lt;specs&gt;&lt;size&gt;large&lt;/size&gt;&lt;/specs&gt;</td>
+<td class="mismatch">✗ DIFF <small>(exact)</small></td>
+</tr>
+<tr class="mismatch-bg">
+<td>TagsNvarchar</td>
+<td>Stra&#223;e</td>
+<td>Strasse</td>
+<td class="mismatch">✗ DIFF <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ProductName</td>
+<td colspan="2">Standard Wrench</td>
+<td class="match">✓ Match <small>(fuzzy)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ShortCode</td>
+<td colspan="2">WRNCH</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Description</td>
+<td colspan="2">A standard wrench for general use.</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>WeightKg</td>
+<td colspan="2">1.5</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>VolumeLiters</td>
+<td colspan="2">0.8</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>UnitCostPrecise</td>
+<td colspan="2">5.123456</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ClearancePrice</td>
+<td colspan="2">9.9900</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TagsVarchar</td>
+<td colspan="2">tools,hand-tools</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>CategoryID</td>
+<td colspan="2">2</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+</table>
+</div></div>
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Known-Mismatches-dbo-OrderLine')">
+<span><strong>[dbo].[OrderLine]</strong> <small>(3 / 3 rows)</small></span>
+<span><span class="tag tag-fail">✗ 5</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Known-Mismatches-dbo-OrderLine" class="table-body ">
+<h3>Row: SKU-100||LG</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="mismatch-bg">
+<td>Quantity</td>
+<td>5</td>
+<td>7</td>
+<td class="mismatch">✗ DIFF <small>(exact)</small></td>
+</tr>
+<tr class="mismatch-bg">
+<td>LineTotal</td>
+<td>149.95</td>
+<td>209.93</td>
+<td class="mismatch">✗ DIFF <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ProductCode</td>
+<td colspan="2">SKU-100</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>SizeCode</td>
+<td colspan="2">LG</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>UnitPrice</td>
+<td colspan="2">29.99</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Description</td>
+<td colspan="2">Large Blue Widget</td>
+<td class="match">✓ Match <small>(fuzzy)</small></td>
+</tr>
+</table>
+<h3>Row: SKU-200||MD</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="mismatch-bg">
+<td>UnitPrice</td>
+<td>29.99</td>
+<td>35.00</td>
+<td class="mismatch">✗ DIFF <small>(currency)</small></td>
+</tr>
+<tr class="mismatch-bg">
+<td>LineTotal</td>
+<td>59.98</td>
+<td>70.00</td>
+<td class="mismatch">✗ DIFF <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ProductCode</td>
+<td colspan="2">SKU-200</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>SizeCode</td>
+<td colspan="2">MD</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Quantity</td>
+<td colspan="2">2</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Description</td>
+<td colspan="2">Medium Red Gadget</td>
+<td class="match">✓ Match <small>(fuzzy)</small></td>
+</tr>
+</table>
+<h3>Row: SKU-300||SM</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="mismatch-bg">
+<td>Description</td>
+<td>Small Green Sprocket</td>
+<td>Tiny Purple Gizmo</td>
+<td class="mismatch">✗ DIFF <small>(fuzzy)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ProductCode</td>
+<td colspan="2">SKU-300</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>SizeCode</td>
+<td colspan="2">SM</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Quantity</td>
+<td colspan="2">1</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>UnitPrice</td>
+<td colspan="2">19.99</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>LineTotal</td>
+<td colspan="2">19.99</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+</table>
+</div></div>
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Known-Mismatches-dbo-Shipment')">
+<span><strong>[dbo].[Shipment]</strong> <small>(1 / 1 rows)</small></span>
+<span><span class="tag tag-fail">✗ 7</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Known-Mismatches-dbo-Shipment" class="table-body ">
+<h3>Row: TRK-2001-A</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="mismatch-bg">
+<td>DispatchTime</td>
+<td>14:30:00</td>
+<td>15:45:00</td>
+<td class="mismatch">✗ DIFF <small>(exact)</small></td>
+</tr>
+<tr class="mismatch-bg">
+<td>ShippedAtOffset</td>
+<td>3/15/2025 2:30:00 PM +05:30</td>
+<td>3/15/2025 4:00:00 PM +05:30</td>
+<td class="mismatch">✗ DIFF <small>(exact)</small></td>
+</tr>
+<tr class="mismatch-bg">
+<td>TotalItems</td>
+<td>15</td>
+<td>20</td>
+<td class="mismatch">✗ DIFF <small>(numeric)</small></td>
+</tr>
+<tr class="mismatch-bg">
+<td>ShipmentWeight</td>
+<td>9223372036854775000</td>
+<td>9223372036854770000</td>
+<td class="mismatch">✗ DIFF <small>(numeric)</small></td>
+</tr>
+<tr class="mismatch-bg">
+<td>AdjustmentAmount</td>
+<td>-15.50</td>
+<td>-100.00</td>
+<td class="mismatch">✗ DIFF <small>(currency)</small></td>
+</tr>
+<tr class="mismatch-bg">
+<td>WeightAsText</td>
+<td>12.5</td>
+<td>15.0</td>
+<td class="mismatch">✗ DIFF <small>(numeric)</small></td>
+</tr>
+<tr class="mismatch-bg">
+<td>CarrierNotes</td>
+<td>Handle with care</td>
+<td>Fragile</td>
+<td class="mismatch">✗ DIFF <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TrackingNumber</td>
+<td colspan="2">TRK-2001-A</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ShipDate</td>
+<td colspan="2">2025-03-15</td>
+<td class="match">✓ Match <small>(date)</small></td>
+</tr>
+<tr class="match-bg">
+<td>PackageCount</td>
+<td colspan="2">3</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>InsuredValue</td>
+<td colspan="2">500.00</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>SpecialInstructions</td>
+<td colspan="2">Ring doorbell</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+</table>
+</div></div>
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Known-Mismatches-dbo-OrderTag')">
+<span><strong>[dbo].[OrderTag]</strong> <small>(2 / 2 rows)</small></span>
+<span><span class="tag tag-fail">✗ 1</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Known-Mismatches-dbo-OrderTag" class="table-body ">
+<h3>Row: Priority</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="mismatch-bg">
+<td>TagValue</td>
+<td>High</td>
+<td>Low</td>
+<td class="mismatch">✗ DIFF <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TagName</td>
+<td colspan="2">Priority</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+</table>
+<h3>Row: Region</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>TagName</td>
+<td colspan="2">Region</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TagValue</td>
+<td colspan="2">West</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+</table>
+</div></div>
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Known-Mismatches-dbo-Payment')">
+<span><strong>[dbo].[Payment]</strong> <small>(2 / 2 rows)</small></span>
+<span><span class="tag tag-fail">✗ 2</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Known-Mismatches-dbo-Payment" class="table-body ">
+<h3>Row: CreditCard</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="mismatch-bg">
+<td>Amount</td>
+<td>75.00</td>
+<td>80.00</td>
+<td class="mismatch">✗ DIFF <small>(currency)</small></td>
+</tr>
+<tr class="mismatch-bg">
+<td>ReferenceNumber</td>
+<td>ABC123</td>
+<td>XYZ789</td>
+<td class="mismatch">✗ DIFF <small>(contains)</small></td>
+</tr>
+<tr class="match-bg">
+<td>PaymentType</td>
+<td colspan="2">CreditCard</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>PaymentDate</td>
+<td colspan="2">2025-03-15</td>
+<td class="match">✓ Match <small>(datetime)</small></td>
+</tr>
+<tr class="match-bg">
+<td>IsRefund</td>
+<td colspan="2">False</td>
+<td class="match">✓ Match <small>(boolean)</small></td>
+</tr>
+</table>
+<h3>Row: Cash</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>PaymentType</td>
+<td colspan="2">Cash</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Amount</td>
+<td colspan="2">25.00</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>PaymentDate</td>
+<td colspan="2">2025-03-15</td>
+<td class="match">✓ Match <small>(datetime)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ReferenceNumber</td>
+<td colspan="2">DEF456</td>
+<td class="match">✓ Match <small>(contains)</small></td>
+</tr>
+<tr class="match-bg">
+<td>IsRefund</td>
+<td colspan="2">False</td>
+<td class="match">✓ Match <small>(boolean)</small></td>
+</tr>
+</table>
+</div></div>
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Known-Mismatches-dbo-AuditLog')">
+<span><strong>[dbo].[AuditLog]</strong> <small>(2 / 2 rows)</small></span>
+<span><span class="tag tag-fail">✗ 1</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Known-Mismatches-dbo-AuditLog" class="table-body ">
+<h3>Row: Create</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>Action</td>
+<td colspan="2">Create</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Details</td>
+<td colspan="2">Order created for customer John Smith total $100</td>
+<td class="match">✓ Match <small>(fuzzy)</small></td>
+</tr>
+</table>
+<h3>Row: Approve</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="mismatch-bg">
+<td>Details</td>
+<td>Manager approved payment batch</td>
+<td>Automated system approved after validation check</td>
+<td class="mismatch">✗ DIFF <small>(fuzzy)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Action</td>
+<td colspan="2">Approve</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+</table>
+</div></div>
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Known-Mismatches-dbo-ProductCategory')">
+<span><strong>[dbo].[ProductCategory]</strong> <small>(1 / 1 rows)</small></span>
+<span><span class="tag tag-pass">✓ match</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Known-Mismatches-dbo-ProductCategory" class="table-body hidden">
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>CategoryCode</td>
+<td colspan="2">TOOLS</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>CategoryName</td>
+<td colspan="2">Tools</td>
+<td class="match">✓ Match <small>(exact-ci)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ParentCategoryID</td>
+<td colspan="2"></td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>SortOrder</td>
+<td colspan="2">2</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>IsVisible</td>
+<td colspan="2">True</td>
+<td class="match">✓ Match <small>(boolean)</small></td>
+</tr>
+<tr class="match-bg">
+<td>MetadataXml</td>
+<td colspan="2">&lt;meta&gt;&lt;color&gt;red&lt;/color&gt;&lt;/meta&gt;</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>IconUrl</td>
+<td colspan="2">/icons/tools.png</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>DisplayNotes</td>
+<td colspan="2">Tool category</td>
+<td class="match">✓ Match <small>(fuzzy)</small></td>
+</tr>
+</table>
+</div></div>
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Known-Mismatches-dbo-InventorySnapshot')">
+<span><strong>[dbo].[InventorySnapshot]</strong> <small>(1 / 1 rows)</small></span>
+<span><span class="tag tag-fail">✗ 4</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Known-Mismatches-dbo-InventorySnapshot" class="table-body ">
+<h3>Row: SKU-200||1</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="mismatch-bg">
+<td>QuantityOnHand</td>
+<td>100</td>
+<td>95</td>
+<td class="mismatch">✗ DIFF <small>(numeric)</small></td>
+</tr>
+<tr class="mismatch-bg">
+<td>UnitCost</td>
+<td>5.123456</td>
+<td>5.200000</td>
+<td class="mismatch">✗ DIFF <small>(numeric)</small></td>
+</tr>
+<tr class="mismatch-bg">
+<td>TotalValue</td>
+<td>512.3500</td>
+<td>494.0000</td>
+<td class="mismatch">✗ DIFF <small>(currency)</small></td>
+</tr>
+<tr class="mismatch-bg">
+<td>SnapshotTime</td>
+<td>08:00:00</td>
+<td>09:30:00</td>
+<td class="mismatch">✗ DIFF <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>WarehouseID</td>
+<td colspan="2">1</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>SKU</td>
+<td colspan="2">SKU-200</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>QuantityReserved</td>
+<td colspan="2">10</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ReorderPoint</td>
+<td colspan="2">20</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>LastCountedAt</td>
+<td colspan="2">3/15/2025 8:00:00 AM +00:00</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>BatchId</td>
+<td colspan="2">d1d2d3d4-e5e6-7890-abcd-ef1234567890</td>
+<td class="match">✓ Match <small>(exact-ci)</small></td>
+</tr>
+<tr class="match-bg">
+<td>WarehouseName</td>
+<td colspan="2">East Coast DC</td>
+<td class="match">✓ Match <small>(exact-ci)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TimeZoneOffset</td>
+<td colspan="2">+05:00</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+</table>
+</div></div>
+</div></div>
+<div class="scenario-block" data-passed="false">
+<div class="scenario-header fail-header" onclick="toggleSection('scenario-Row-Count-Diff')">
+<span><strong>Row-Count-Diff</strong> <small>(OLD-3001 &rarr; NEW-3001)</small></span>
+<span><span class="tag tag-fail">✗ 9 MISMATCHES</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Row-Count-Diff" class="scenario-body ">
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Row-Count-Diff-dbo-Customer')">
+<span><strong>[dbo].[Customer]</strong> <small>(1 / 1 rows)</small></span>
+<span><span class="tag tag-pass">✓ match</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Row-Count-Diff-dbo-Customer" class="table-body hidden">
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>FullName</td>
+<td colspan="2">Alice Johnson</td>
+<td class="match">✓ Match <small>(fuzzy)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Email</td>
+<td colspan="2">alice@test.com</td>
+<td class="match">✓ Match <small>(exact-ci)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Phone</td>
+<td colspan="2">555-3001</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Address</td>
+<td colspan="2">789 Pine Rd</td>
+<td class="match">✓ Match <small>(contains)</small></td>
+</tr>
+<tr class="match-bg">
+<td>IsActive</td>
+<td colspan="2">True</td>
+<td class="match">✓ Match <small>(boolean)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Notes</td>
+<td colspan="2"></td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+</table>
+</div></div>
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Row-Count-Diff-dbo-Order')">
+<span><strong>[dbo].[Order]</strong> <small>(1 / 1 rows)</small></span>
+<span><span class="tag tag-pass">✓ match</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Row-Count-Diff-dbo-Order" class="table-body hidden">
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>OrderDate</td>
+<td colspan="2">2025-07-01</td>
+<td class="match">✓ Match <small>(date)</small></td>
+</tr>
+<tr class="match-bg">
+<td>OrderStatus</td>
+<td colspan="2">Shipped</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>SubTotal</td>
+<td colspan="2">150.00</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TaxRate</td>
+<td colspan="2">0.0800</td>
+<td class="match">✓ Match <small>(percentage)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TaxAmount</td>
+<td colspan="2">12.00</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TotalAmount</td>
+<td colspan="2">162.00</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>DiscountPercent</td>
+<td colspan="2">0.0000</td>
+<td class="match">✓ Match <small>(percentage)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Notes</td>
+<td colspan="2"></td>
+<td class="match">✓ Match <small>(ignore)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ProcessedFlag</td>
+<td colspan="2">True</td>
+<td class="match">✓ Match <small>(boolean)</small></td>
+</tr>
+</table>
+</div></div>
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Row-Count-Diff-dbo-Product')">
+<span><strong>[dbo].[Product]</strong> <small>(1 / 1 rows)</small></span>
+<span><span class="tag tag-pass">✓ match</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Row-Count-Diff-dbo-Product" class="table-body hidden">
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>ProductGuid</td>
+<td colspan="2">c1c2c3c4-d5d6-7890-abcd-ef1234567890</td>
+<td class="match">✓ Match <small>(exact-ci)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ProductCode</td>
+<td colspan="2">SKU-DELTA</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ProductName</td>
+<td colspan="2">Basic Widget</td>
+<td class="match">✓ Match <small>(fuzzy)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ShortCode</td>
+<td colspan="2">BWDG</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Description</td>
+<td colspan="2">A basic widget.</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>WeightKg</td>
+<td colspan="2">0.5</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>VolumeLiters</td>
+<td colspan="2">0.2</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>UnitCostPrecise</td>
+<td colspan="2">3.500000</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ListPrice</td>
+<td colspan="2">9.9900</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ClearancePrice</td>
+<td colspan="2">4.9900</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Specifications</td>
+<td colspan="2">&lt;specs&gt;&lt;size&gt;small&lt;/size&gt;&lt;/specs&gt;</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TagsVarchar</td>
+<td colspan="2">basic</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TagsNvarchar</td>
+<td colspan="2">basic</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>CategoryID</td>
+<td colspan="2"></td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+</table>
+</div></div>
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Row-Count-Diff-dbo-OrderLine')">
+<span><strong>[dbo].[OrderLine]</strong> <small>(4 / 3 rows)</small></span>
+<span><span class="tag tag-fail">✗ 3</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Row-Count-Diff-dbo-OrderLine" class="table-body ">
+<h3>Row: SKU-A||LG</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>ProductCode</td>
+<td colspan="2">SKU-A</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>SizeCode</td>
+<td colspan="2">LG</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Quantity</td>
+<td colspan="2">3</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>UnitPrice</td>
+<td colspan="2">25.00</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>LineTotal</td>
+<td colspan="2">75.00</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Description</td>
+<td colspan="2">Alpha Large</td>
+<td class="match">✓ Match <small>(fuzzy)</small></td>
+</tr>
+</table>
+<h3>Row: SKU-C||SM</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>ProductCode</td>
+<td colspan="2">SKU-C</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>SizeCode</td>
+<td colspan="2">SM</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Quantity</td>
+<td colspan="2">1</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>UnitPrice</td>
+<td colspan="2">15.00</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>LineTotal</td>
+<td colspan="2">15.00</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Description</td>
+<td colspan="2">Charlie Small</td>
+<td class="match">✓ Match <small>(fuzzy)</small></td>
+</tr>
+</table>
+<p class="mismatch">⚠ Missing in new system (key: SKU-B||MD)</p>
+<p class="mismatch">⚠ Missing in new system (key: SKU-D||XL)</p>
+<p class="mismatch">⚠ Extra in new system (key: SKU-E||LG)</p>
+</div></div>
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Row-Count-Diff-dbo-Shipment')">
+<span><strong>[dbo].[Shipment]</strong> <small>(3 / 3 rows)</small></span>
+<span><span class="tag tag-fail">✗ 2</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Row-Count-Diff-dbo-Shipment" class="table-body ">
+<h3>Row: TRK-3001-A</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>TrackingNumber</td>
+<td colspan="2">TRK-3001-A</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ShipDate</td>
+<td colspan="2">2025-07-01</td>
+<td class="match">✓ Match <small>(date)</small></td>
+</tr>
+<tr class="match-bg">
+<td>DispatchTime</td>
+<td colspan="2">10:00:00</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ShippedAtOffset</td>
+<td colspan="2">7/1/2025 10:00:00 AM +00:00</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>PackageCount</td>
+<td colspan="2">1</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TotalItems</td>
+<td colspan="2">5</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ShipmentWeight</td>
+<td colspan="2">5000</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>AdjustmentAmount</td>
+<td colspan="2">0.00</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>InsuredValue</td>
+<td colspan="2">100.00</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>WeightAsText</td>
+<td colspan="2">5.0</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>CarrierNotes</td>
+<td colspan="2">Standard</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>SpecialInstructions</td>
+<td colspan="2">None</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+</table>
+<h3>Row: TRK-3001-B</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>TrackingNumber</td>
+<td colspan="2">TRK-3001-B</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ShipDate</td>
+<td colspan="2">2025-07-02</td>
+<td class="match">✓ Match <small>(date)</small></td>
+</tr>
+<tr class="match-bg">
+<td>DispatchTime</td>
+<td colspan="2">11:00:00</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ShippedAtOffset</td>
+<td colspan="2">7/2/2025 11:00:00 AM +00:00</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>PackageCount</td>
+<td colspan="2">2</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TotalItems</td>
+<td colspan="2">10</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ShipmentWeight</td>
+<td colspan="2">8000</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>AdjustmentAmount</td>
+<td colspan="2">-5.00</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>InsuredValue</td>
+<td colspan="2">200.00</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>WeightAsText</td>
+<td colspan="2">8.0</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>CarrierNotes</td>
+<td colspan="2">Standard</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>SpecialInstructions</td>
+<td colspan="2">None</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+</table>
+<p class="mismatch">⚠ Missing in new system (key: TRK-3001-C)</p>
+<p class="mismatch">⚠ Extra in new system (key: TRK-3001-D)</p>
+</div></div>
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Row-Count-Diff-dbo-OrderTag')">
+<span><strong>[dbo].[OrderTag]</strong> <small>(1 / 0 rows)</small></span>
+<span><span class="tag tag-fail">✗ 1</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Row-Count-Diff-dbo-OrderTag" class="table-body ">
+<p class="mismatch">⚠ Missing in new system (key: Urgent)</p>
+</div></div>
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Row-Count-Diff-dbo-Payment')">
+<span><strong>[dbo].[Payment]</strong> <small>(2 / 3 rows)</small></span>
+<span><span class="tag tag-fail">✗ 1</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Row-Count-Diff-dbo-Payment" class="table-body ">
+<h3>Row: CreditCard</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>PaymentType</td>
+<td colspan="2">CreditCard</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Amount</td>
+<td colspan="2">100.00</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>PaymentDate</td>
+<td colspan="2">2025-07-01</td>
+<td class="match">✓ Match <small>(datetime)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ReferenceNumber</td>
+<td colspan="2">CC-3001</td>
+<td class="match">✓ Match <small>(contains)</small></td>
+</tr>
+<tr class="match-bg">
+<td>IsRefund</td>
+<td colspan="2">False</td>
+<td class="match">✓ Match <small>(boolean)</small></td>
+</tr>
+</table>
+<h3>Row: Cash</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>PaymentType</td>
+<td colspan="2">Cash</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Amount</td>
+<td colspan="2">62.00</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>PaymentDate</td>
+<td colspan="2">2025-07-01</td>
+<td class="match">✓ Match <small>(datetime)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ReferenceNumber</td>
+<td colspan="2">CA-3001</td>
+<td class="match">✓ Match <small>(contains)</small></td>
+</tr>
+<tr class="match-bg">
+<td>IsRefund</td>
+<td colspan="2">False</td>
+<td class="match">✓ Match <small>(boolean)</small></td>
+</tr>
+</table>
+<p class="mismatch">⚠ Extra in new system (key: GiftCard)</p>
+</div></div>
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Row-Count-Diff-dbo-AuditLog')">
+<span><strong>[dbo].[AuditLog]</strong> <small>(2 / 1 rows)</small></span>
+<span><span class="tag tag-fail">✗ 1</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Row-Count-Diff-dbo-AuditLog" class="table-body ">
+<h3>Row: Create</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>Action</td>
+<td colspan="2">Create</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Details</td>
+<td colspan="2">Order created</td>
+<td class="match">✓ Match <small>(fuzzy)</small></td>
+</tr>
+</table>
+<p class="mismatch">⚠ Missing in new system (key: Approve)</p>
+</div></div>
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Row-Count-Diff-dbo-ProductCategory')">
+<span><strong>[dbo].[ProductCategory]</strong> <small>(0 / 0 rows)</small></span>
+<span><span class="tag tag-pass">✓ match</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Row-Count-Diff-dbo-ProductCategory" class="table-body hidden">
+</div></div>
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Row-Count-Diff-dbo-InventorySnapshot')">
+<span><strong>[dbo].[InventorySnapshot]</strong> <small>(2 / 3 rows)</small></span>
+<span><span class="tag tag-fail">✗ 1</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Row-Count-Diff-dbo-InventorySnapshot" class="table-body ">
+<h3>Row: SKU-DELTA||1</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>WarehouseID</td>
+<td colspan="2">1</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>SKU</td>
+<td colspan="2">SKU-DELTA</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>QuantityOnHand</td>
+<td colspan="2">100</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>QuantityReserved</td>
+<td colspan="2">10</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ReorderPoint</td>
+<td colspan="2">20</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>UnitCost</td>
+<td colspan="2">3.500000</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TotalValue</td>
+<td colspan="2">350.0000</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>LastCountedAt</td>
+<td colspan="2">7/1/2025 8:00:00 AM +00:00</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>SnapshotTime</td>
+<td colspan="2">08:00:00</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>BatchId</td>
+<td colspan="2">e1e2e3e4-f5f6-7890-abcd-ef1234567890</td>
+<td class="match">✓ Match <small>(exact-ci)</small></td>
+</tr>
+<tr class="match-bg">
+<td>WarehouseName</td>
+<td colspan="2">East Coast DC</td>
+<td class="match">✓ Match <small>(exact-ci)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TimeZoneOffset</td>
+<td colspan="2">+05:00</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+</table>
+<h3>Row: SKU-DELTA||2</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>WarehouseID</td>
+<td colspan="2">2</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>SKU</td>
+<td colspan="2">SKU-DELTA</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>QuantityOnHand</td>
+<td colspan="2">50</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>QuantityReserved</td>
+<td colspan="2">5</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ReorderPoint</td>
+<td colspan="2">10</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>UnitCost</td>
+<td colspan="2">3.500000</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TotalValue</td>
+<td colspan="2">175.0000</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>LastCountedAt</td>
+<td colspan="2">7/1/2025 11:00:00 AM -08:00</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>SnapshotTime</td>
+<td colspan="2">11:00:00</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>BatchId</td>
+<td colspan="2">e1e2e3e4-f5f6-7890-abcd-ef1234567891</td>
+<td class="match">✓ Match <small>(exact-ci)</small></td>
+</tr>
+<tr class="match-bg">
+<td>WarehouseName</td>
+<td colspan="2">West Coast DC</td>
+<td class="match">✓ Match <small>(exact-ci)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TimeZoneOffset</td>
+<td colspan="2">-08:00</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+</table>
+<p class="mismatch">⚠ Extra in new system (key: SKU-DELTA||3)</p>
+</div></div>
+</div></div>
+<div class="scenario-block" data-passed="false">
+<div class="scenario-header fail-header" onclick="toggleSection('scenario-Null-Handling')">
+<span><strong>Null-Handling</strong> <small>(OLD-4001 &rarr; NEW-4001)</small></span>
+<span><span class="tag tag-fail">✗ 13 MISMATCHES</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Null-Handling" class="scenario-body ">
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Null-Handling-dbo-Customer')">
+<span><strong>[dbo].[Customer]</strong> <small>(1 / 1 rows)</small></span>
+<span><span class="tag tag-fail">✗ 2</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Null-Handling-dbo-Customer" class="table-body ">
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="mismatch-bg">
+<td>Phone</td>
+<td>&lt;NULL&gt;</td>
+<td>555-1234</td>
+<td class="mismatch">✗ DIFF <small>(exact)</small></td>
+</tr>
+<tr class="mismatch-bg">
+<td>Address</td>
+<td>123 Main St</td>
+<td>&lt;NULL&gt;</td>
+<td class="mismatch">✗ DIFF <small>(contains)</small></td>
+</tr>
+<tr class="match-bg">
+<td>FullName</td>
+<td colspan="2">Bob Wilson</td>
+<td class="match">✓ Match <small>(fuzzy)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Email</td>
+<td colspan="2">bob@test.com</td>
+<td class="match">✓ Match <small>(exact-ci)</small></td>
+</tr>
+<tr class="match-bg">
+<td>IsActive</td>
+<td colspan="2">True</td>
+<td class="match">✓ Match <small>(boolean)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Notes</td>
+<td colspan="2"></td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+</table>
+</div></div>
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Null-Handling-dbo-Order')">
+<span><strong>[dbo].[Order]</strong> <small>(1 / 1 rows)</small></span>
+<span><span class="tag tag-fail">✗ 1</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Null-Handling-dbo-Order" class="table-body ">
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="mismatch-bg">
+<td>TotalAmount</td>
+<td>&lt;NULL&gt;</td>
+<td>100.00</td>
+<td class="mismatch">✗ DIFF <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>OrderDate</td>
+<td colspan="2">2025-08-01</td>
+<td class="match">✓ Match <small>(date)</small></td>
+</tr>
+<tr class="match-bg">
+<td>OrderStatus</td>
+<td colspan="2">Pending</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>SubTotal</td>
+<td colspan="2">50.00</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TaxRate</td>
+<td colspan="2"></td>
+<td class="match">✓ Match <small>(percentage)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TaxAmount</td>
+<td colspan="2"></td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>DiscountPercent</td>
+<td colspan="2">0.0000</td>
+<td class="match">✓ Match <small>(percentage)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Notes</td>
+<td colspan="2"></td>
+<td class="match">✓ Match <small>(ignore)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ProcessedFlag</td>
+<td colspan="2">True</td>
+<td class="match">✓ Match <small>(boolean)</small></td>
+</tr>
+</table>
+</div></div>
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Null-Handling-dbo-Product')">
+<span><strong>[dbo].[Product]</strong> <small>(1 / 1 rows)</small></span>
+<span><span class="tag tag-fail">✗ 3</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Null-Handling-dbo-Product" class="table-body ">
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="mismatch-bg">
+<td>WeightKg</td>
+<td>&lt;NULL&gt;</td>
+<td>1.5</td>
+<td class="mismatch">✗ DIFF <small>(numeric)</small></td>
+</tr>
+<tr class="mismatch-bg">
+<td>ListPrice</td>
+<td>&lt;NULL&gt;</td>
+<td>19.9900</td>
+<td class="mismatch">✗ DIFF <small>(currency)</small></td>
+</tr>
+<tr class="mismatch-bg">
+<td>TagsNvarchar</td>
+<td>&lt;NULL&gt;</td>
+<td>has-value</td>
+<td class="mismatch">✗ DIFF <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ProductGuid</td>
+<td colspan="2"></td>
+<td class="match">✓ Match <small>(exact-ci)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ProductCode</td>
+<td colspan="2">SKU-NULL</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ProductName</td>
+<td colspan="2">Null Test Product</td>
+<td class="match">✓ Match <small>(fuzzy)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ShortCode</td>
+<td colspan="2">NULL</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Description</td>
+<td colspan="2"></td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>VolumeLiters</td>
+<td colspan="2">0.5</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>UnitCostPrecise</td>
+<td colspan="2">1.000000</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ClearancePrice</td>
+<td colspan="2">4.9900</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Specifications</td>
+<td colspan="2"></td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TagsVarchar</td>
+<td colspan="2"></td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>CategoryID</td>
+<td colspan="2"></td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+</table>
+</div></div>
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Null-Handling-dbo-OrderLine')">
+<span><strong>[dbo].[OrderLine]</strong> <small>(2 / 2 rows)</small></span>
+<span><span class="tag tag-fail">✗ 1</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Null-Handling-dbo-OrderLine" class="table-body ">
+<h3>Row: SKU-X||LG</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>ProductCode</td>
+<td colspan="2">SKU-X</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>SizeCode</td>
+<td colspan="2">LG</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Quantity</td>
+<td colspan="2">1</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>UnitPrice</td>
+<td colspan="2">25.00</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>LineTotal</td>
+<td colspan="2">25.00</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Description</td>
+<td colspan="2"></td>
+<td class="match">✓ Match <small>(fuzzy)</small></td>
+</tr>
+</table>
+<h3>Row: SKU-Y||MD</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="mismatch-bg">
+<td>Description</td>
+<td>Standard Widget</td>
+<td>&lt;NULL&gt;</td>
+<td class="mismatch">✗ DIFF <small>(fuzzy)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ProductCode</td>
+<td colspan="2">SKU-Y</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>SizeCode</td>
+<td colspan="2">MD</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Quantity</td>
+<td colspan="2">2</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>UnitPrice</td>
+<td colspan="2">12.50</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>LineTotal</td>
+<td colspan="2">25.00</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+</table>
+</div></div>
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Null-Handling-dbo-Shipment')">
+<span><strong>[dbo].[Shipment]</strong> <small>(1 / 1 rows)</small></span>
+<span><span class="tag tag-fail">✗ 3</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Null-Handling-dbo-Shipment" class="table-body ">
+<h3>Row: TRK-4001-A</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="mismatch-bg">
+<td>PackageCount</td>
+<td>0</td>
+<td>&lt;NULL&gt;</td>
+<td class="mismatch">✗ DIFF <small>(numeric)</small></td>
+</tr>
+<tr class="mismatch-bg">
+<td>WeightAsText</td>
+<td>&lt;NULL&gt;</td>
+<td>0.0</td>
+<td class="mismatch">✗ DIFF <small>(numeric)</small></td>
+</tr>
+<tr class="mismatch-bg">
+<td>CarrierNotes</td>
+<td>&lt;EMPTY&gt;</td>
+<td>&lt;NULL&gt;</td>
+<td class="mismatch">✗ DIFF <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TrackingNumber</td>
+<td colspan="2">TRK-4001-A</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ShipDate</td>
+<td colspan="2">2025-08-01</td>
+<td class="match">✓ Match <small>(date)</small></td>
+</tr>
+<tr class="match-bg">
+<td>DispatchTime</td>
+<td colspan="2">10:00:00</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ShippedAtOffset</td>
+<td colspan="2">8/1/2025 10:00:00 AM +00:00</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TotalItems</td>
+<td colspan="2">5</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ShipmentWeight</td>
+<td colspan="2">1000</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>AdjustmentAmount</td>
+<td colspan="2">0.00</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>InsuredValue</td>
+<td colspan="2">100.00</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>SpecialInstructions</td>
+<td colspan="2"></td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+</table>
+</div></div>
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Null-Handling-dbo-OrderTag')">
+<span><strong>[dbo].[OrderTag]</strong> <small>(1 / 1 rows)</small></span>
+<span><span class="tag tag-fail">✗ 1</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Null-Handling-dbo-OrderTag" class="table-body ">
+<h3>Row: Status</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="mismatch-bg">
+<td>TagValue</td>
+<td>Active</td>
+<td>&lt;NULL&gt;</td>
+<td class="mismatch">✗ DIFF <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TagName</td>
+<td colspan="2">Status</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+</table>
+</div></div>
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Null-Handling-dbo-Payment')">
+<span><strong>[dbo].[Payment]</strong> <small>(1 / 1 rows)</small></span>
+<span><span class="tag tag-pass">✓ match</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Null-Handling-dbo-Payment" class="table-body hidden">
+<h3>Row: CreditCard</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>PaymentType</td>
+<td colspan="2">CreditCard</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Amount</td>
+<td colspan="2">50.00</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>PaymentDate</td>
+<td colspan="2">2025-08-01</td>
+<td class="match">✓ Match <small>(datetime)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ReferenceNumber</td>
+<td colspan="2"></td>
+<td class="match">✓ Match <small>(contains)</small></td>
+</tr>
+<tr class="match-bg">
+<td>IsRefund</td>
+<td colspan="2">False</td>
+<td class="match">✓ Match <small>(boolean)</small></td>
+</tr>
+</table>
+</div></div>
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Null-Handling-dbo-AuditLog')">
+<span><strong>[dbo].[AuditLog]</strong> <small>(1 / 1 rows)</small></span>
+<span><span class="tag tag-fail">✗ 1</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Null-Handling-dbo-AuditLog" class="table-body ">
+<h3>Row: Create</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="mismatch-bg">
+<td>Details</td>
+<td>&lt;NULL&gt;</td>
+<td>Processed</td>
+<td class="mismatch">✗ DIFF <small>(fuzzy)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Action</td>
+<td colspan="2">Create</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+</table>
+</div></div>
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Null-Handling-dbo-ProductCategory')">
+<span><strong>[dbo].[ProductCategory]</strong> <small>(0 / 0 rows)</small></span>
+<span><span class="tag tag-pass">✓ match</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Null-Handling-dbo-ProductCategory" class="table-body hidden">
+</div></div>
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Null-Handling-dbo-InventorySnapshot')">
+<span><strong>[dbo].[InventorySnapshot]</strong> <small>(1 / 1 rows)</small></span>
+<span><span class="tag tag-fail">✗ 1</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Null-Handling-dbo-InventorySnapshot" class="table-body ">
+<h3>Row: SKU-NULL||1</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="mismatch-bg">
+<td>QuantityReserved</td>
+<td>0</td>
+<td>&lt;NULL&gt;</td>
+<td class="mismatch">✗ DIFF <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>WarehouseID</td>
+<td colspan="2">1</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>SKU</td>
+<td colspan="2">SKU-NULL</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>QuantityOnHand</td>
+<td colspan="2">20</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ReorderPoint</td>
+<td colspan="2">5</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>UnitCost</td>
+<td colspan="2">1.000000</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TotalValue</td>
+<td colspan="2"></td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>LastCountedAt</td>
+<td colspan="2">8/1/2025 8:00:00 AM +00:00</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>SnapshotTime</td>
+<td colspan="2">08:00:00</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>BatchId</td>
+<td colspan="2"></td>
+<td class="match">✓ Match <small>(exact-ci)</small></td>
+</tr>
+<tr class="match-bg">
+<td>WarehouseName</td>
+<td colspan="2">East Coast DC</td>
+<td class="match">✓ Match <small>(exact-ci)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TimeZoneOffset</td>
+<td colspan="2">+05:00</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+</table>
+</div></div>
+</div></div>
+<div class="scenario-block" data-passed="false">
+<div class="scenario-header fail-header" onclick="toggleSection('scenario-Complex-Queries-Dupes')">
+<span><strong>Complex-Queries-Dupes</strong> <small>(OLD-5001 &rarr; NEW-5001)</small></span>
+<span><span class="tag tag-fail">✗ 1 MISMATCH</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Complex-Queries-Dupes" class="scenario-body ">
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Complex-Queries-Dupes-dbo-Customer')">
+<span><strong>[dbo].[Customer]</strong> <small>(1 / 1 rows)</small></span>
+<span><span class="tag tag-pass">✓ match</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Complex-Queries-Dupes-dbo-Customer" class="table-body hidden">
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>FullName</td>
+<td colspan="2">Carol Davis</td>
+<td class="match">✓ Match <small>(fuzzy)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Email</td>
+<td colspan="2">carol@test.com</td>
+<td class="match">✓ Match <small>(exact-ci)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Phone</td>
+<td colspan="2">555-5001</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Address</td>
+<td colspan="2">321 Elm St</td>
+<td class="match">✓ Match <small>(contains)</small></td>
+</tr>
+<tr class="match-bg">
+<td>IsActive</td>
+<td colspan="2">True</td>
+<td class="match">✓ Match <small>(boolean)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Notes</td>
+<td colspan="2">VIP</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+</table>
+</div></div>
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Complex-Queries-Dupes-dbo-Order')">
+<span><strong>[dbo].[Order]</strong> <small>(1 / 1 rows)</small></span>
+<span><span class="tag tag-pass">✓ match</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Complex-Queries-Dupes-dbo-Order" class="table-body hidden">
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>OrderDate</td>
+<td colspan="2">2025-09-01</td>
+<td class="match">✓ Match <small>(date)</small></td>
+</tr>
+<tr class="match-bg">
+<td>OrderStatus</td>
+<td colspan="2">Completed</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>SubTotal</td>
+<td colspan="2">200.00</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TaxRate</td>
+<td colspan="2">0.0600</td>
+<td class="match">✓ Match <small>(percentage)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TaxAmount</td>
+<td colspan="2">12.00</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TotalAmount</td>
+<td colspan="2">212.00</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>DiscountPercent</td>
+<td colspan="2">0.0500</td>
+<td class="match">✓ Match <small>(percentage)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Notes</td>
+<td colspan="2"></td>
+<td class="match">✓ Match <small>(ignore)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ProcessedFlag</td>
+<td colspan="2">True</td>
+<td class="match">✓ Match <small>(boolean)</small></td>
+</tr>
+</table>
+</div></div>
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Complex-Queries-Dupes-dbo-Product')">
+<span><strong>[dbo].[Product]</strong> <small>(1 / 1 rows)</small></span>
+<span><span class="tag tag-pass">✓ match</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Complex-Queries-Dupes-dbo-Product" class="table-body hidden">
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>ProductGuid</td>
+<td colspan="2">f1f2f3f4-a5a6-7890-abcd-ef1234567890</td>
+<td class="match">✓ Match <small>(exact-ci)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ProductCode</td>
+<td colspan="2">SKU-PREM</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ProductName</td>
+<td colspan="2">Premium Deluxe</td>
+<td class="match">✓ Match <small>(fuzzy)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ShortCode</td>
+<td colspan="2">PREM</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Description</td>
+<td colspan="2">A premium product.</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>WeightKg</td>
+<td colspan="2">3</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>VolumeLiters</td>
+<td colspan="2">2</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>UnitCostPrecise</td>
+<td colspan="2">25.000000</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ListPrice</td>
+<td colspan="2">99.9900</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ClearancePrice</td>
+<td colspan="2">79.9900</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Specifications</td>
+<td colspan="2">&lt;specs&gt;&lt;material&gt;titanium&lt;/material&gt;&lt;/specs&gt;</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TagsVarchar</td>
+<td colspan="2">premium</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TagsNvarchar</td>
+<td colspan="2">premium</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>CategoryID</td>
+<td colspan="2">3</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+</table>
+</div></div>
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Complex-Queries-Dupes-dbo-OrderLine')">
+<span><strong>[dbo].[OrderLine]</strong> <small>(2 / 2 rows)</small></span>
+<span><span class="tag tag-pass">✓ match</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Complex-Queries-Dupes-dbo-OrderLine" class="table-body hidden">
+<h3>Row: SKU-P||LG</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>ProductCode</td>
+<td colspan="2">SKU-P</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>SizeCode</td>
+<td colspan="2">LG</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Quantity</td>
+<td colspan="2">2</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>UnitPrice</td>
+<td colspan="2">50.00</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>LineTotal</td>
+<td colspan="2">100.00</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Description</td>
+<td colspan="2">Premium Large Item</td>
+<td class="match">✓ Match <small>(fuzzy)</small></td>
+</tr>
+</table>
+<h3>Row: SKU-Q||SM</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>ProductCode</td>
+<td colspan="2">SKU-Q</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>SizeCode</td>
+<td colspan="2">SM</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Quantity</td>
+<td colspan="2">4</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>UnitPrice</td>
+<td colspan="2">25.00</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>LineTotal</td>
+<td colspan="2">100.00</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Description</td>
+<td colspan="2">Standard Small Item</td>
+<td class="match">✓ Match <small>(fuzzy)</small></td>
+</tr>
+</table>
+</div></div>
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Complex-Queries-Dupes-dbo-Shipment')">
+<span><strong>[dbo].[Shipment]</strong> <small>(1 / 1 rows)</small></span>
+<span><span class="tag tag-pass">✓ match</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Complex-Queries-Dupes-dbo-Shipment" class="table-body hidden">
+<h3>Row: TRK-5001-A</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>TrackingNumber</td>
+<td colspan="2">TRK-5001-A</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ShipDate</td>
+<td colspan="2">2025-09-01</td>
+<td class="match">✓ Match <small>(date)</small></td>
+</tr>
+<tr class="match-bg">
+<td>DispatchTime</td>
+<td colspan="2">16:00:00</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ShippedAtOffset</td>
+<td colspan="2">9/1/2025 4:00:00 PM +00:00</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>PackageCount</td>
+<td colspan="2">2</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TotalItems</td>
+<td colspan="2">8</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ShipmentWeight</td>
+<td colspan="2">20000</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>AdjustmentAmount</td>
+<td colspan="2">0.00</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>InsuredValue</td>
+<td colspan="2">800.00</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>WeightAsText</td>
+<td colspan="2">20.0</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>CarrierNotes</td>
+<td colspan="2">Insured shipment</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>SpecialInstructions</td>
+<td colspan="2">VIP customer</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+</table>
+</div></div>
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Complex-Queries-Dupes-dbo-OrderTag')">
+<span><strong>[dbo].[OrderTag]</strong> <small>(3 / 3 rows)</small></span>
+<span><span class="tag tag-pass">✓ match</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Complex-Queries-Dupes-dbo-OrderTag" class="table-body hidden">
+<p class="warning">⚠ Duplicate key &#39;Priority&#39; found in old record (2 rows). Comparing first match only.</p>
+<p class="warning">⚠ Duplicate key &#39;Priority&#39; found in new record (2 rows). Comparing first match only.</p>
+<h3>Row: Priority</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>TagName</td>
+<td colspan="2">Priority</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TagValue</td>
+<td colspan="2">High</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+</table>
+<h3>Row: Region</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>TagName</td>
+<td colspan="2">Region</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TagValue</td>
+<td colspan="2">East</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+</table>
+</div></div>
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Complex-Queries-Dupes-dbo-Payment')">
+<span><strong>[dbo].[Payment]</strong> <small>(3 / 3 rows)</small></span>
+<span><span class="tag tag-fail">✗ 1</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Complex-Queries-Dupes-dbo-Payment" class="table-body ">
+<h3>Row: CreditCard</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="mismatch-bg">
+<td>Amount</td>
+<td>150.00</td>
+<td>155.00</td>
+<td class="mismatch">✗ DIFF <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>PaymentType</td>
+<td colspan="2">CreditCard</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>PaymentDate</td>
+<td colspan="2">2025-09-01</td>
+<td class="match">✓ Match <small>(datetime)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ReferenceNumber</td>
+<td colspan="2">CC-5001</td>
+<td class="match">✓ Match <small>(contains)</small></td>
+</tr>
+<tr class="match-bg">
+<td>IsRefund</td>
+<td colspan="2">False</td>
+<td class="match">✓ Match <small>(boolean)</small></td>
+</tr>
+</table>
+<h3>Row: Cash</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>PaymentType</td>
+<td colspan="2">Cash</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Amount</td>
+<td colspan="2">50.00</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>PaymentDate</td>
+<td colspan="2">2025-09-01</td>
+<td class="match">✓ Match <small>(datetime)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ReferenceNumber</td>
+<td colspan="2">CA-5001</td>
+<td class="match">✓ Match <small>(contains)</small></td>
+</tr>
+<tr class="match-bg">
+<td>IsRefund</td>
+<td colspan="2">False</td>
+<td class="match">✓ Match <small>(boolean)</small></td>
+</tr>
+</table>
+<h3>Row: GiftCard</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>PaymentType</td>
+<td colspan="2">GiftCard</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Amount</td>
+<td colspan="2">12.00</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>PaymentDate</td>
+<td colspan="2">2025-09-01</td>
+<td class="match">✓ Match <small>(datetime)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ReferenceNumber</td>
+<td colspan="2">GC-5001</td>
+<td class="match">✓ Match <small>(contains)</small></td>
+</tr>
+<tr class="match-bg">
+<td>IsRefund</td>
+<td colspan="2">False</td>
+<td class="match">✓ Match <small>(boolean)</small></td>
+</tr>
+</table>
+</div></div>
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Complex-Queries-Dupes-dbo-AuditLog')">
+<span><strong>[dbo].[AuditLog]</strong> <small>(2 / 2 rows)</small></span>
+<span><span class="tag tag-pass">✓ match</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Complex-Queries-Dupes-dbo-AuditLog" class="table-body hidden">
+<h3>Row: Create</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>Action</td>
+<td colspan="2">Create</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Details</td>
+<td colspan="2">Order created</td>
+<td class="match">✓ Match <small>(fuzzy)</small></td>
+</tr>
+</table>
+<h3>Row: Approve</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>Action</td>
+<td colspan="2">Approve</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>Details</td>
+<td colspan="2">Payment verified</td>
+<td class="match">✓ Match <small>(fuzzy)</small></td>
+</tr>
+</table>
+</div></div>
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Complex-Queries-Dupes-dbo-ProductCategory')">
+<span><strong>[dbo].[ProductCategory]</strong> <small>(1 / 1 rows)</small></span>
+<span><span class="tag tag-pass">✓ match</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Complex-Queries-Dupes-dbo-ProductCategory" class="table-body hidden">
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>CategoryCode</td>
+<td colspan="2">PREMIUM</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>CategoryName</td>
+<td colspan="2">Premium Items</td>
+<td class="match">✓ Match <small>(exact-ci)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ParentCategoryID</td>
+<td colspan="2"></td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>SortOrder</td>
+<td colspan="2">3</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>IsVisible</td>
+<td colspan="2">True</td>
+<td class="match">✓ Match <small>(boolean)</small></td>
+</tr>
+<tr class="match-bg">
+<td>MetadataXml</td>
+<td colspan="2">&lt;meta&gt;&lt;tier&gt;gold&lt;/tier&gt;&lt;/meta&gt;</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>IconUrl</td>
+<td colspan="2">/icons/premium.png</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>DisplayNotes</td>
+<td colspan="2">Premium tier products</td>
+<td class="match">✓ Match <small>(fuzzy)</small></td>
+</tr>
+</table>
+</div></div>
+<div class="table-section">
+<div class="table-header" onclick="toggleSection('scenario-Complex-Queries-Dupes-dbo-InventorySnapshot')">
+<span><strong>[dbo].[InventorySnapshot]</strong> <small>(2 / 2 rows)</small></span>
+<span><span class="tag tag-pass">✓ match</span> <span class="arrow">&#9660;</span></span>
+</div>
+<div id="scenario-Complex-Queries-Dupes-dbo-InventorySnapshot" class="table-body hidden">
+<h3>Row: SKU-PREM||1</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>WarehouseID</td>
+<td colspan="2">1</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>SKU</td>
+<td colspan="2">SKU-PREM</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>QuantityOnHand</td>
+<td colspan="2">20</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>QuantityReserved</td>
+<td colspan="2">2</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ReorderPoint</td>
+<td colspan="2">5</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>UnitCost</td>
+<td colspan="2">25.000000</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TotalValue</td>
+<td colspan="2">500.0000</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>LastCountedAt</td>
+<td colspan="2">9/1/2025 8:00:00 AM +00:00</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>SnapshotTime</td>
+<td colspan="2">08:00:00</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>BatchId</td>
+<td colspan="2">a1a1a1a1-b2b2-c3c3-d4d4-e5e5e5e5e5e5</td>
+<td class="match">✓ Match <small>(exact-ci)</small></td>
+</tr>
+<tr class="match-bg">
+<td>WarehouseName</td>
+<td colspan="2">East Coast DC</td>
+<td class="match">✓ Match <small>(exact-ci)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TimeZoneOffset</td>
+<td colspan="2">+05:00</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+</table>
+<h3>Row: SKU-PREM||999</h3>
+<table>
+<tr><th>Column</th><th>Old Value</th><th>New Value</th><th>Result</th></tr>
+<tr class="match-bg">
+<td>WarehouseID</td>
+<td colspan="2">999</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>SKU</td>
+<td colspan="2">SKU-PREM</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>QuantityOnHand</td>
+<td colspan="2">5</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>QuantityReserved</td>
+<td colspan="2">0</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>ReorderPoint</td>
+<td colspan="2">1</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>UnitCost</td>
+<td colspan="2">25.000000</td>
+<td class="match">✓ Match <small>(numeric)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TotalValue</td>
+<td colspan="2">125.0000</td>
+<td class="match">✓ Match <small>(currency)</small></td>
+</tr>
+<tr class="match-bg">
+<td>LastCountedAt</td>
+<td colspan="2">9/1/2025 10:00:00 AM +00:00</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>SnapshotTime</td>
+<td colspan="2">10:00:00</td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+<tr class="match-bg">
+<td>BatchId</td>
+<td colspan="2">a1a1a1a1-b2b2-c3c3-d4d4-e5e5e5e5e5e6</td>
+<td class="match">✓ Match <small>(exact-ci)</small></td>
+</tr>
+<tr class="match-bg">
+<td>WarehouseName</td>
+<td colspan="2"></td>
+<td class="match">✓ Match <small>(exact-ci)</small></td>
+</tr>
+<tr class="match-bg">
+<td>TimeZoneOffset</td>
+<td colspan="2"></td>
+<td class="match">✓ Match <small>(exact)</small></td>
+</tr>
+</table>
+</div></div>
+</div></div>
+<h2>Exclusions Applied</h2>
+<table>
+<tr><th>Table</th><th>Column</th><th>Reason</th></tr>
+<tr class="excluded-bg">
+<td>Customer</td>
+<td>RecordID</td>
+<td>Different IDs by design</td>
+</tr>
+<tr class="excluded-bg">
+<td>Customer</td>
+<td>CreatedDate</td>
+<td>Different timestamps</td>
+</tr>
+<tr class="excluded-bg">
+<td>Customer</td>
+<td>ModifiedDate</td>
+<td>Different timestamps</td>
+</tr>
+<tr class="excluded-bg">
+<td>Customer</td>
+<td>CreatedBy</td>
+<td>Different user sessions</td>
+</tr>
+<tr class="excluded-bg">
+<td>Customer</td>
+<td>CustomerID</td>
+<td>Auto-generated surrogate</td>
+</tr>
+<tr class="excluded-bg">
+<td>Order</td>
+<td>RecordID</td>
+<td>Different IDs by design</td>
+</tr>
+<tr class="excluded-bg">
+<td>Order</td>
+<td>CreatedDate</td>
+<td>Different timestamps</td>
+</tr>
+<tr class="excluded-bg">
+<td>Order</td>
+<td>ModifiedDate</td>
+<td>Different timestamps</td>
+</tr>
+<tr class="excluded-bg">
+<td>Order</td>
+<td>CreatedBy</td>
+<td>Different user sessions</td>
+</tr>
+<tr class="excluded-bg">
+<td>Order</td>
+<td>OrderID</td>
+<td>Auto-generated surrogate</td>
+</tr>
+<tr class="excluded-bg">
+<td>Order</td>
+<td>CustomerRecordID</td>
+<td>Different IDs by design</td>
+</tr>
+<tr class="excluded-bg">
+<td>Product</td>
+<td>RecordID</td>
+<td>Different IDs by design</td>
+</tr>
+<tr class="excluded-bg">
+<td>Product</td>
+<td>CreatedDate</td>
+<td>Different timestamps</td>
+</tr>
+<tr class="excluded-bg">
+<td>Product</td>
+<td>ModifiedDate</td>
+<td>Different timestamps</td>
+</tr>
+<tr class="excluded-bg">
+<td>Product</td>
+<td>CreatedBy</td>
+<td>Different user sessions</td>
+</tr>
+<tr class="excluded-bg">
+<td>Product</td>
+<td>ProductID</td>
+<td>Auto-generated surrogate</td>
+</tr>
+<tr class="excluded-bg">
+<td>OrderLine</td>
+<td>RecordID</td>
+<td>Different IDs by design</td>
+</tr>
+<tr class="excluded-bg">
+<td>OrderLine</td>
+<td>CreatedDate</td>
+<td>Different timestamps</td>
+</tr>
+<tr class="excluded-bg">
+<td>OrderLine</td>
+<td>ModifiedDate</td>
+<td>Different timestamps</td>
+</tr>
+<tr class="excluded-bg">
+<td>OrderLine</td>
+<td>CreatedBy</td>
+<td>Different user sessions</td>
+</tr>
+<tr class="excluded-bg">
+<td>OrderLine</td>
+<td>OrderLineID</td>
+<td>Auto-generated surrogate</td>
+</tr>
+<tr class="excluded-bg">
+<td>Shipment</td>
+<td>RecordID</td>
+<td>Different IDs by design</td>
+</tr>
+<tr class="excluded-bg">
+<td>Shipment</td>
+<td>CreatedDate</td>
+<td>Different timestamps</td>
+</tr>
+<tr class="excluded-bg">
+<td>Shipment</td>
+<td>ModifiedDate</td>
+<td>Different timestamps</td>
+</tr>
+<tr class="excluded-bg">
+<td>Shipment</td>
+<td>CreatedBy</td>
+<td>Different user sessions</td>
+</tr>
+<tr class="excluded-bg">
+<td>Shipment</td>
+<td>ShipmentID</td>
+<td>Auto-generated surrogate</td>
+</tr>
+<tr class="excluded-bg">
+<td>OrderTag</td>
+<td>RecordID</td>
+<td>Different IDs by design</td>
+</tr>
+<tr class="excluded-bg">
+<td>OrderTag</td>
+<td>CreatedDate</td>
+<td>Different timestamps</td>
+</tr>
+<tr class="excluded-bg">
+<td>OrderTag</td>
+<td>ModifiedDate</td>
+<td>Different timestamps</td>
+</tr>
+<tr class="excluded-bg">
+<td>OrderTag</td>
+<td>CreatedBy</td>
+<td>Different user sessions</td>
+</tr>
+<tr class="excluded-bg">
+<td>OrderTag</td>
+<td>OrderTagID</td>
+<td>Auto-generated surrogate</td>
+</tr>
+<tr class="excluded-bg">
+<td>Payment</td>
+<td>RecordID</td>
+<td>Different IDs by design</td>
+</tr>
+<tr class="excluded-bg">
+<td>Payment</td>
+<td>CreatedDate</td>
+<td>Different timestamps</td>
+</tr>
+<tr class="excluded-bg">
+<td>Payment</td>
+<td>ModifiedDate</td>
+<td>Different timestamps</td>
+</tr>
+<tr class="excluded-bg">
+<td>Payment</td>
+<td>CreatedBy</td>
+<td>Different user sessions</td>
+</tr>
+<tr class="excluded-bg">
+<td>Payment</td>
+<td>PaymentID</td>
+<td>Auto-generated surrogate</td>
+</tr>
+<tr class="excluded-bg">
+<td>Payment</td>
+<td>ProcessedBy</td>
+<td>Different processor sessions</td>
+</tr>
+<tr class="excluded-bg">
+<td>AuditLog</td>
+<td>RecordID</td>
+<td>Different IDs by design</td>
+</tr>
+<tr class="excluded-bg">
+<td>AuditLog</td>
+<td>CreatedDate</td>
+<td>Different timestamps</td>
+</tr>
+<tr class="excluded-bg">
+<td>AuditLog</td>
+<td>ModifiedDate</td>
+<td>Different timestamps</td>
+</tr>
+<tr class="excluded-bg">
+<td>AuditLog</td>
+<td>CreatedBy</td>
+<td>Different user sessions</td>
+</tr>
+<tr class="excluded-bg">
+<td>AuditLog</td>
+<td>AuditLogID</td>
+<td>Auto-generated surrogate</td>
+</tr>
+<tr class="excluded-bg">
+<td>AuditLog</td>
+<td>Category</td>
+<td>Always Financial due to query filter</td>
+</tr>
+<tr class="excluded-bg">
+<td>AuditLog</td>
+<td>LogTimestamp</td>
+<td>Different timestamps</td>
+</tr>
+<tr class="excluded-bg">
+<td>AuditLog</td>
+<td>UserName</td>
+<td>Different user sessions</td>
+</tr>
+<tr class="excluded-bg">
+<td>ProductCategory</td>
+<td>RecordID</td>
+<td>Different IDs by design</td>
+</tr>
+<tr class="excluded-bg">
+<td>ProductCategory</td>
+<td>CreatedDate</td>
+<td>Different timestamps</td>
+</tr>
+<tr class="excluded-bg">
+<td>ProductCategory</td>
+<td>ModifiedDate</td>
+<td>Different timestamps</td>
+</tr>
+<tr class="excluded-bg">
+<td>ProductCategory</td>
+<td>CreatedBy</td>
+<td>Different user sessions</td>
+</tr>
+<tr class="excluded-bg">
+<td>ProductCategory</td>
+<td>CategoryID</td>
+<td>Auto-generated surrogate</td>
+</tr>
+<tr class="excluded-bg">
+<td>InventorySnapshot</td>
+<td>RecordID</td>
+<td>Different IDs by design</td>
+</tr>
+<tr class="excluded-bg">
+<td>InventorySnapshot</td>
+<td>CreatedDate</td>
+<td>Different timestamps</td>
+</tr>
+<tr class="excluded-bg">
+<td>InventorySnapshot</td>
+<td>ModifiedDate</td>
+<td>Different timestamps</td>
+</tr>
+<tr class="excluded-bg">
+<td>InventorySnapshot</td>
+<td>CreatedBy</td>
+<td>Different user sessions</td>
+</tr>
+<tr class="excluded-bg">
+<td>InventorySnapshot</td>
+<td>SnapshotID</td>
+<td>Auto-generated surrogate</td>
+</tr>
+<tr class="excluded-bg">
+<td>InventorySnapshot</td>
+<td>Notes</td>
+<td>Ignore notes in inventory</td>
+</tr>
+</table>
+<div class="meta" style="margin-top: 30px; border-top: 1px solid #ecf0f1; padding-top: 10px;">
+Generated by MsSqlRecordsCompare v1.0 at 2026-04-01 23:31:07
+</div>
+</div>
+<script>
+    function toggleSection(id) {
+        var el = document.getElementById(id);
+        if (el) el.classList.toggle('hidden');
+    }
+    function filterScenarios(mode) {
+        var blocks = document.querySelectorAll('.scenario-block');
+        blocks.forEach(function(block) {
+            if (mode === 'all') {
+                block.style.display = '';
+            } else if (mode === 'mismatches') {
+                block.style.display = block.dataset.passed === 'true' ? 'none' : '';
+            }
+        });
+    }
+</script>
+</body>
+</html>

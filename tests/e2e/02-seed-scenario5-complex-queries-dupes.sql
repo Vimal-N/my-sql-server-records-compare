@@ -99,5 +99,50 @@ VALUES
     ('NEW-5001', 'Priority', 'Critical'),   -- duplicate TagName (different value from old's 2nd)
     ('NEW-5001', 'Region',   'East');
 
+-- Product + ProductCategory: test subquery custom query pattern
+-- Both systems reference the same category
+DECLARE @catId5 INT;
+INSERT INTO dbo.ProductCategory (CategoryCode, CategoryName, ParentCategoryID, SortOrder, IsVisible, MetadataXml, IconUrl, DisplayNotes)
+VALUES ('PREMIUM   ', 'Premium Items', NULL, 3, 1, '<meta><tier>gold</tier></meta>', '/icons/premium.png', 'Premium tier products');
+SET @catId5 = SCOPE_IDENTITY();
+
+INSERT INTO dbo.Product (RecordID, ProductGuid, ProductCode, ProductName, ShortCode, Description,
+    WeightKg, VolumeLiters, UnitCostPrecise, ListPrice, ClearancePrice,
+    Specifications, TagsVarchar, TagsNvarchar, CategoryID)
+VALUES
+    ('OLD-5001', 'F1F2F3F4-A5A6-7890-ABCD-EF1234567890', 'SKU-PREM', 'Premium Deluxe', 'PREM',
+     'A premium product.', 3.0, 2.0, 25.000000, 99.99, 79.99,
+     '<specs><material>titanium</material></specs>', 'premium', N'premium', @catId5),
+    ('NEW-5001', 'f1f2f3f4-a5a6-7890-abcd-ef1234567890', 'SKU-PREM', 'Premium Deluxe', 'PREM',
+     'A premium product.', 3.0, 2.0, 25.000000, 99.99, 79.99,
+     '<specs><material>titanium</material></specs>', 'premium', N'premium', @catId5);
+
+-- Shipment: standard match for complex scenario
+INSERT INTO dbo.Shipment (RecordID, TrackingNumber, ShipDate, DispatchTime, ShippedAtOffset,
+    PackageCount, TotalItems, ShipmentWeight, AdjustmentAmount, InsuredValue,
+    WeightAsText, CarrierNotes, SpecialInstructions)
+VALUES
+    ('OLD-5001', 'TRK-5001-A', '2025-09-01', '16:00:00', '2025-09-01 16:00:00 +00:00',
+     2, 8, 20000, 0.00, 800.00, '20.0', 'Insured shipment', 'VIP customer'),
+    ('NEW-5001', 'TRK-5001-A', '2025-09-01', '16:00:00', '2025-09-01 16:00:00 +00:00',
+     2, 8, 20000, 0.00, 800.00, '20.0', 'Insured shipment', 'VIP customer');
+
+-- InventorySnapshot: LEFT JOIN, including a row with WarehouseID=999 (no matching warehouse → NULL from LEFT JOIN)
+INSERT INTO dbo.InventorySnapshot (RecordID, WarehouseID, SKU, QuantityOnHand, QuantityReserved,
+    ReorderPoint, UnitCost, TotalValue, LastCountedAt, SnapshotTime, BatchId, Notes)
+VALUES
+    ('OLD-5001', 1, 'SKU-PREM', 20, 2, 5, 25.000000, 500.00, '2025-09-01 08:00:00 +00:00', '08:00:00',
+     'A1A1A1A1-B2B2-C3C3-D4D4-E5E5E5E5E5E5', 'Premium stock'),
+    ('OLD-5001', 999, 'SKU-PREM', 5, 0, 1, 25.000000, 125.00, '2025-09-01 10:00:00 +00:00', '10:00:00',
+     'A1A1A1A1-B2B2-C3C3-D4D4-E5E5E5E5E5E6', 'Overflow');   -- WarehouseID=999 → LEFT JOIN gives NULL WarehouseName
+
+INSERT INTO dbo.InventorySnapshot (RecordID, WarehouseID, SKU, QuantityOnHand, QuantityReserved,
+    ReorderPoint, UnitCost, TotalValue, LastCountedAt, SnapshotTime, BatchId, Notes)
+VALUES
+    ('NEW-5001', 1, 'SKU-PREM', 20, 2, 5, 25.000000, 500.00, '2025-09-01 08:00:00 +00:00', '08:00:00',
+     'a1a1a1a1-b2b2-c3c3-d4d4-e5e5e5e5e5e5', 'Premium stock'),
+    ('NEW-5001', 999, 'SKU-PREM', 5, 0, 1, 25.000000, 125.00, '2025-09-01 10:00:00 +00:00', '10:00:00',
+     'a1a1a1a1-b2b2-c3c3-d4d4-e5e5e5e5e5e6', 'Overflow');
+
 PRINT '=== Scenario 5 (Complex Queries & Duplicate Keys) seeded ===';
 GO

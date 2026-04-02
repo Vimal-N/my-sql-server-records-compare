@@ -74,5 +74,59 @@ VALUES
 INSERT INTO dbo.OrderTag (RecordID, TagName, TagValue)
 VALUES ('OLD-3001', 'Urgent', 'Yes');
 
+-- Product: simple match (single row table)
+INSERT INTO dbo.Product (RecordID, ProductGuid, ProductCode, ProductName, ShortCode, Description,
+    WeightKg, VolumeLiters, UnitCostPrecise, ListPrice, ClearancePrice,
+    Specifications, TagsVarchar, TagsNvarchar)
+VALUES
+    ('OLD-3001', 'C1C2C3C4-D5D6-7890-ABCD-EF1234567890', 'SKU-DELTA', 'Basic Widget', 'BWDG',
+     'A basic widget.', 0.5, 0.2, 3.500000, 9.99, 4.99,
+     '<specs><size>small</size></specs>', 'basic', N'basic'),
+    ('NEW-3001', 'c1c2c3c4-d5d6-7890-abcd-ef1234567890', 'SKU-DELTA', 'Basic Widget', 'BWDG',
+     'A basic widget.', 0.5, 0.2, 3.500000, 9.99, 4.99,
+     '<specs><size>small</size></specs>', 'basic', N'basic');
+
+-- Shipment: Old=3, New=2 (missing TRK-3001-C), New has extra TRK-3001-D
+INSERT INTO dbo.Shipment (RecordID, TrackingNumber, ShipDate, DispatchTime, ShippedAtOffset,
+    PackageCount, TotalItems, ShipmentWeight, AdjustmentAmount, InsuredValue,
+    WeightAsText, CarrierNotes, SpecialInstructions)
+VALUES
+    ('OLD-3001', 'TRK-3001-A', '2025-07-01', '10:00:00', '2025-07-01 10:00:00 +00:00',
+     1, 5, 5000, 0.00, 100.00, '5.0', 'Standard', 'None'),
+    ('OLD-3001', 'TRK-3001-B', '2025-07-02', '11:00:00', '2025-07-02 11:00:00 +00:00',
+     2, 10, 8000, -5.00, 200.00, '8.0', 'Standard', 'None'),
+    ('OLD-3001', 'TRK-3001-C', '2025-07-03', '12:00:00', '2025-07-03 12:00:00 +00:00',
+     1, 3, 2000, 0.00, 50.00, '2.0', 'Express', 'Signature required');
+
+INSERT INTO dbo.Shipment (RecordID, TrackingNumber, ShipDate, DispatchTime, ShippedAtOffset,
+    PackageCount, TotalItems, ShipmentWeight, AdjustmentAmount, InsuredValue,
+    WeightAsText, CarrierNotes, SpecialInstructions)
+VALUES
+    ('NEW-3001', 'TRK-3001-A', '2025-07-01', '10:00:00', '2025-07-01 10:00:00 +00:00',
+     1, 5, 5000, 0.00, 100.00, '5.0', 'Standard', 'None'),
+    ('NEW-3001', 'TRK-3001-B', '2025-07-02', '11:00:00', '2025-07-02 11:00:00 +00:00',
+     2, 10, 8000, -5.00, 200.00, '8.0', 'Standard', 'None'),
+    ('NEW-3001', 'TRK-3001-D', '2025-07-04', '14:00:00', '2025-07-04 14:00:00 +00:00',
+     3, 20, 15000, 0.00, 400.00, '15.0', 'Freight', 'Dock delivery');
+
+-- InventorySnapshot: Old=2 warehouses, New=3 (extra warehouse 3)
+INSERT INTO dbo.InventorySnapshot (RecordID, WarehouseID, SKU, QuantityOnHand, QuantityReserved,
+    ReorderPoint, UnitCost, TotalValue, LastCountedAt, SnapshotTime, BatchId, Notes)
+VALUES
+    ('OLD-3001', 1, 'SKU-DELTA', 100, 10, 20, 3.500000, 350.00, '2025-07-01 08:00:00 +00:00', '08:00:00',
+     'E1E2E3E4-F5F6-7890-ABCD-EF1234567890', 'Count'),
+    ('OLD-3001', 2, 'SKU-DELTA', 50, 5, 10, 3.500000, 175.00, '2025-07-01 11:00:00 -08:00', '11:00:00',
+     'E1E2E3E4-F5F6-7890-ABCD-EF1234567891', 'Count');
+
+INSERT INTO dbo.InventorySnapshot (RecordID, WarehouseID, SKU, QuantityOnHand, QuantityReserved,
+    ReorderPoint, UnitCost, TotalValue, LastCountedAt, SnapshotTime, BatchId, Notes)
+VALUES
+    ('NEW-3001', 1, 'SKU-DELTA', 100, 10, 20, 3.500000, 350.00, '2025-07-01 08:00:00 +00:00', '08:00:00',
+     'e1e2e3e4-f5f6-7890-abcd-ef1234567890', 'Count'),
+    ('NEW-3001', 2, 'SKU-DELTA', 50, 5, 10, 3.500000, 175.00, '2025-07-01 11:00:00 -08:00', '11:00:00',
+     'e1e2e3e4-f5f6-7890-abcd-ef1234567891', 'Count'),
+    ('NEW-3001', 3, 'SKU-DELTA', 25, 0, 5, 3.500000, 87.50, '2025-07-01 12:00:00 +00:00', '12:00:00',
+     'e1e2e3e4-f5f6-7890-abcd-ef1234567892', 'New warehouse');
+
 PRINT '=== Scenario 3 (Row Count Differences) seeded ===';
 GO
